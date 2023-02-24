@@ -43,7 +43,7 @@ const SignIn = () => {
             value={password}
             onChange={(e) => setpassword(e.target.value)}
           />
-          <div className="aadhaardiv">
+          <div className="aadhaardivMain">
             <img
               src="./images/Aadhaar.svg"
               className="aadhaarimg"
@@ -80,8 +80,10 @@ const SignIn = () => {
             value={otp}
             onChange={(e) => setotp(e.target.value)}
           />
-          <div className="aadhaardiv">
-            <div className="regenerateOtp">Regenerate OTP</div>
+          <div className="backDiv">
+            <div className="regenerateOtp">
+              Regenerate OTP <i class="fa-solid fa-arrows-rotate"></i>
+            </div>
             <div
               className="goBackBtn"
               onClick={() => {
