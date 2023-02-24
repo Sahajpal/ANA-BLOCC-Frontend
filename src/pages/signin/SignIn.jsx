@@ -82,7 +82,7 @@ const SignIn = () => {
           />
           <div className="backDiv">
             <div className="regenerateOtp">
-              Regenerate OTP <i class="fa-solid fa-arrows-rotate"></i>
+              Resend OTP <i class="fa-solid fa-arrows-rotate"></i>
             </div>
             <div
               className="goBackBtn"

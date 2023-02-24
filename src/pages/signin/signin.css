@@ -63,4 +63,10 @@
 }
 .fa-arrows-rotate {
   color: #f57f20;
+  animation: mymove 5s infinite;
+}
+@keyframes mymove {
+  50% {
+    transform: rotate(180deg);
+  }
 }
