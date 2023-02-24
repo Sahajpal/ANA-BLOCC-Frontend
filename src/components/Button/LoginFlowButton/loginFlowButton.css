@@ -1,0 +1,20 @@
+.LoginBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f57f20;
+  color: White;
+  font-weight: 600;
+  padding: 10px;
+  border: transparent;
+  border-radius: 2px;
+}
+.LoginBtn:hover {
+  outline: 1px solid #f57f20;
+  box-shadow: rgb(249, 221, 171) 0px 0px 2px 5px;
+  cursor: pointer;
+}
+.aadhaarimg {
+  width: 200px;
+}
