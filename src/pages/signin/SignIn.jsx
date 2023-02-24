@@ -90,7 +90,7 @@ const SignIn = () => {
                 setemailLogin(true);
               }}
             >
-              Go Back
+              <i class="fa-solid fa-arrow-left"></i> Go Back
             </div>
           </div>
           <div className="loginbtn">
