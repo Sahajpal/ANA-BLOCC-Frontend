@@ -8,7 +8,7 @@ import "./signin.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [mobileNumber, setMobileNumber] = useState('');
+  const [mobileNumber, setMobileNumber] = useState("");
   const [isOtpRequested, setIsOtpRequested] = useState(false);
 
   function handleMobileNumberChange(event) {
@@ -17,57 +17,58 @@ const SignIn = () => {
 
   function handleOtpRequest(event) {
     // event.preventDefault();
-    console.log('hi',process.env.REACT_APP_BASE_URL)
+    console.log("hi", process.env.REACT_APP_BASE_URL);
 
     fetch(process.env.REACT_APP_BASE_URL + "/users/login", {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ mobileNumber })
+      body: JSON.stringify({ mobileNumber }),
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         console.log(data);
         setIsOtpRequested(true);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }
 
   return (
     <div className="loginMainDiv">
-        <form
-          action=""
-          className="loginForm"
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
-        >
-          <div className="loginHeading">Login</div>
-          <label htmlFor="">Mobile Number</label>
-          <input
-            type="tel"
-            value={mobileNumber}
-            onChange={handleMobileNumberChange} 
+      <form
+        action=""
+        className="loginForm"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleOtpRequest();
+        }}
+      >
+        <div className="loginHeading">Login</div>
+        <label htmlFor="">Mobile Number</label>
+        <input
+          type="tel"
+          value={mobileNumber}
+          onChange={handleMobileNumberChange}
+        />
+        <div className="loginbtn">
+          <LoginFlowButton
+            text={"Request OTP"}
+            // submitHandler={() => handleOtpRequest()}
           />
-          <div className="loginbtn">
-            <LoginFlowButton
-              text={"Request OTP"}
-              submitHandler={() => handleOtpRequest()}
-            />
-          </div>
-          {isOtpRequested && (
-            <label>
-              OTP:
-              <input type="number" />
-            </label>
-          )}
-          {isOtpRequested && <button>Verify OTP</button>}
-        </form>
         </div>
-  )
+        {isOtpRequested && (
+          <label>
+            OTP:
+            <input type="number" />
+          </label>
+        )}
+        {isOtpRequested && <button>Verify OTP</button>}
+      </form>
+    </div>
+  );
 };
 
 export default SignIn;
