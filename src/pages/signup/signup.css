@@ -1,0 +1,72 @@
+.loginMainDiv {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  color: #383838;
+}
+.loginForm {
+  padding: 48px 36px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.loginMainDiv input {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 8px 16px;
+}
+
+.loginMainDiv label {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.loginMainDiv .loginbtn {
+  margin-top: 24px;
+}
+.loginMainDiv .loginHeading {
+  font-size: 24px;
+  font-weight: 600;
+  align-self: center;
+}
+.aadhaarimg {
+  width: 30px;
+  cursor: pointer;
+}
+.backDiv {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.aadhaardivMain {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+.goBackBtn {
+  cursor: pointer;
+}
+/* .regenerateandgoback {
+  display: flex;
+  justify-content: space-between;
+} */
+.regenerateOtp {
+  color: #f57f20;
+}
+.fa-arrows-rotate {
+  color: #f57f20;
+  animation: mymove 5s infinite;
+}
+@keyframes mymove {
+  50% {
+    transform: rotate(180deg);
+  }
+}

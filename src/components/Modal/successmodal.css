@@ -1,0 +1,76 @@
+.modal {
+  position: absolute;
+  width: 500px;
+  height: 307px;
+  border-radius: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+  position: absolute;
+  width: 189px;
+  height: 23px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 120px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #091982;
+}
+
+.subHeading {
+  position: absolute;
+  width: 373px;
+  height: 38px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 173px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #212121;
+}
+
+.actionButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 4px;
+  position: absolute;
+  width: 140px;
+  height: 16px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 239px;
+  background: #5a6acf;
+  border-radius: 8px;
+}
+
+.animation {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 12px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
