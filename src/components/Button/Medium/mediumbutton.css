@@ -1,0 +1,15 @@
+.mediumbutton {
+  text-align: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  width: 100%;
+  background: #5a6acf;
+  border-radius: 8px;
+  border: 1px solid #5a6acf;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+}
+.mediumbutton:hover {
+  background: #6979de;
+}

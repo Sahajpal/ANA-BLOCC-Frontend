@@ -1,0 +1,67 @@
+.cardMainDiv {
+  box-sizing: border-box;
+
+  padding: 16px 24px;
+  border-radius: 4px;
+  border: 1px solid #d5daf2;
+}
+
+.cardPropertyHeading {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+
+  color: #212121;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #d5daf2;
+}
+.cardPropertyStatusMain {
+  padding-bottom: 25px;
+  padding-top: 20px;
+}
+.cardownstatus {
+  width: 100%;
+  display: flex;
+}
+.cardownstatus > div {
+  width: 50%;
+}
+.cardimgDiv {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #757575;
+}
+.cardPropertyStatusMain {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cardPersonName {
+  font-weight: 400;
+  font-size: 14px;
+}
+.cardForSale {
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #149d52;
+}
+.cardButtonDiv {
+  margin-bottom: 16px;
+}
+.cardDocDiv {
+  display: flex;
+  gap: 6px;
+}
+.cardDocDiv > div {
+  font-weight: 400;
+  font-size: 12px;
+
+  text-decoration-line: underline;
+
+  color: #757575;
+}
