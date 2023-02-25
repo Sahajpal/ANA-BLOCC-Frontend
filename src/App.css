@@ -12,3 +12,8 @@ body {
   font-family: "Roboto", sans-serif;
   font-style: normal;
 }
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}

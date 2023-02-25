@@ -165,7 +165,7 @@ function Map() {
     polygon6.setMap(map);
   }, []);
 
-  return <div ref={mapRef} style={{ height: "100%", width: "100%" }} />;
+  return <div ref={mapRef} />;
 }
 
 export default Map;

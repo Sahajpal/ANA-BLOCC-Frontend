@@ -20,7 +20,6 @@ function App() {
   return (
     <div>
       <Dashboard />
-      {/* <Map /> */}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 .dashboardMain {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 .dashboardMainContent {
@@ -9,4 +9,5 @@
 .contentDiv {
   display: flex;
   height: calc(100vh - 70px);
+  width: 100%;
 }

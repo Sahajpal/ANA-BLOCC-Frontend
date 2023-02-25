@@ -1,6 +1,12 @@
 .manageMainDiv {
   display: flex;
+  flex: 1;
   height: calc(100vh - 70px);
+  box-sizing: border-box;
+}
+.manageMainDivLeft {
+  display: flex;
+  flex-direction: column;
 }
 .propertyListDiv {
   display: flex;
@@ -12,17 +18,7 @@
   height: calc(100vh - 65px);
   overflow: auto;
 }
-.manageMainDivRight {
-  padding: 10px;
-  box-sizing: border-box;
-  flex: 1;
-  height: calc(100vh - 70px);
-  overflow: auto;
-}
-.manageMainDivLeft {
-  display: flex;
-  flex-direction: column;
-}
+
 .navLeftDiv {
   display: flex;
   padding: 10px;
@@ -42,4 +38,11 @@
   color: #5a6acf;
   border-bottom: 1px solid #5a6acf;
   background-color: #f1f2fc;
+}
+.manageMainDivRight {
+  flex: 1;
+  height: calc(100vh - 70px);
+
+  overflow: hidden;
+  /* background: red; */
 }
