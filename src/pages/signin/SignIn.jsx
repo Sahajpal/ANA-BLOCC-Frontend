@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginFlowButton from "../../components/Button/LoginFlowButton/LoginFlowButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./signin.css";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const [emailLogin, setemailLogin] = useState(true);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -11,12 +15,20 @@ const SignIn = () => {
   const [aadhaar, setaadhaar] = useState("");
   const [otp, setotp] = useState();
 
-  const emailLoginFunction = (e) => {};
-  const aadhaarLoginFunction = (e) => {};
-
-  useEffect(() => {
-    return () => {};
-  }, [emailLogin]);
+  const emailLoginFunction = (e) => {
+    if (email !== "anablocc@gmail.com" || password !== "12345") {
+      toast.error("invalid credential!");
+    } else {
+      navigate("home");
+    }
+  };
+  const aadhaarLoginFunction = (e) => {
+    if (aadhaar !== 123456789012 || otp !== "12345") {
+      toast.error("invalid credential!");
+    } else {
+      navigate("home");
+    }
+  };
 
   return (
     <div className="loginMainDiv">
@@ -54,7 +66,10 @@ const SignIn = () => {
             />
           </div>
           <div className="loginbtn">
-            <LoginFlowButton text={"Login"} />
+            <LoginFlowButton
+              text={"Login"}
+              submitHandler={() => emailLoginFunction}
+            />
           </div>
         </form>
       ) : (
@@ -98,6 +113,7 @@ const SignIn = () => {
           </div>
         </form>
       )}
+      <ToastContainer autoClose={2000} />
     </div>
   );
 };
