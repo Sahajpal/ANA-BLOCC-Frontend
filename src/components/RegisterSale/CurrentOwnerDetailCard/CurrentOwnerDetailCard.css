@@ -1,0 +1,59 @@
+.CurrentOwnerDetailCardDiv {
+  display: flex;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  gap: 20px;
+  flex-direction: column;
+  border: 1px solid #d5daf2;
+  border-radius: 4px;
+}
+.CurrentOwnerDetailCardDivName {
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  align-items: center;
+  gap: 6px;
+
+  color: #757575;
+}
+.CurrentOwnerDetailCardDivNameMain {
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #091982;
+}
+.CurrentOwnerDetailCardDivTop {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.CurrentOwnerDetailCardAddress {
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #757575;
+}
+.CurrentOwnerDetailCardDivBottom {
+  display: flex;
+  justify-content: space-between;
+}
+.CurrentOwnerDetailCardDivBottomVal {
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #212121;
+}
+.CurrentOwnerDetailCardDivBottom > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.CurrentOwnerDetailCardDivBottomName {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #757575;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}

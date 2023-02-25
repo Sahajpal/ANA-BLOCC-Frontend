@@ -1,0 +1,70 @@
+.CurrentOwnerCard {
+  width: 100%;
+  border: 1px solid #d5daf2;
+  border-radius: 4px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+}
+.CurrentOwnerCardDivName {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #757575;
+  padding-bottom: 12px;
+}
+.CurrentOwnerCardDivName > div {
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #091982;
+}
+.CurrentOwnerCardDivAdd {
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #757575;
+}
+.CurrentOwnerCardDivDoc {
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #091982;
+}
+.CurrentOwnerCardTop {
+  border-bottom: 1px solid #d5daf2;
+  padding-bottom: 12px;
+}
+.CurrentOwnerCardDivAdd {
+  padding-bottom: 24px;
+}
+.CurrentOwnerCardList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0px;
+}
+.CurrentOwnerCardListDoc {
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #5a6acf;
+}
+.CurrentOwnerCardListDocBtn {
+  border-radius: 8px;
+  background-color: white;
+  padding: 8px 16px;
+  text-align: center;
+  color: #5a6acf;
+  border: 1px solid #5a6acf;
+  width: 150px;
+  box-sizing: border-box;
+}
+.CurrentOwnerCardlabel {
+  font-weight: 400;
+  font-size: 14px;
+  color: #212121;
+  padding-bottom: 8px;
+}

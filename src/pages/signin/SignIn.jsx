@@ -8,112 +8,65 @@ import "./signin.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [emailLogin, setemailLogin] = useState(true);
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-  const [showpwd, setshowpwd] = useState(false);
-  const [aadhaar, setaadhaar] = useState("");
-  const [otp, setotp] = useState();
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [isOtpRequested, setIsOtpRequested] = useState(false);
 
-  const emailLoginFunction = (e) => {
-    if (email !== "anablocc@gmail.com" || password !== "12345") {
-      toast.error("invalid credential!");
-    } else {
-      navigate("home");
-    }
-  };
-  const aadhaarLoginFunction = (e) => {
-    if (aadhaar !== 123456789012 || otp !== "12345") {
-      toast.error("invalid credential!");
-    } else {
-      navigate("home");
-    }
-  };
+  function handleMobileNumberChange(event) {
+    setMobileNumber(event.target.value);
+  }
+
+  function handleOtpRequest(event) {
+    // event.preventDefault();
+    console.log("hi", process.env.REACT_APP_BASE_URL);
+
+    fetch(process.env.REACT_APP_BASE_URL + "/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ mobileNumber }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setIsOtpRequested(true);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <div className="loginMainDiv">
-      {emailLogin ? (
-        <form
-          action=""
-          className="loginForm"
-          onSubmit={(e) => {
-            e.preventDefault();
-            emailLoginFunction();
-          }}
-        >
-          <div className="loginHeading">Login</div>
-          <label htmlFor="">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setemail(e.target.value)}
+      <form
+        action=""
+        className="loginForm"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleOtpRequest();
+        }}
+      >
+        <div className="loginHeading">Login</div>
+        <label htmlFor="">Mobile Number</label>
+        <input
+          type="tel"
+          value={mobileNumber}
+          onChange={handleMobileNumberChange}
+        />
+        <div className="loginbtn">
+          <LoginFlowButton
+            text={"Request OTP"}
+            // submitHandler={() => handleOtpRequest()}
           />
-
-          <label htmlFor="">Password </label>
-          <input
-            type={showpwd ? "text" : "password"}
-            value={password}
-            onChange={(e) => setpassword(e.target.value)}
-          />
-          <div className="aadhaardivMain">
-            <img
-              src="./images/Aadhaar.svg"
-              className="aadhaarimg"
-              alt=""
-              onClick={() => {
-                setemailLogin(false);
-              }}
-            />
-          </div>
-          <div className="loginbtn">
-            <LoginFlowButton
-              text={"Login"}
-              submitHandler={() => emailLoginFunction}
-            />
-          </div>
-        </form>
-      ) : (
-        <form
-          action=""
-          className="loginForm"
-          onSubmit={(e) => {
-            e.preventDefault();
-            aadhaarLoginFunction();
-          }}
-        >
-          <div className="loginHeading">Aadhaar Login</div>
-          <label htmlFor="">Aadhaar Number</label>
-          <input
-            type="number"
-            value={aadhaar}
-            onChange={(e) => setaadhaar(e.target.value)}
-          />
-
-          <label htmlFor="">OTP </label>
-          <input
-            type={"password"}
-            value={otp}
-            onChange={(e) => setotp(e.target.value)}
-          />
-          <div className="backDiv">
-            <div className="regenerateOtp">
-              Resend OTP <i class="fa-solid fa-arrows-rotate"></i>
-            </div>
-            <div
-              className="goBackBtn"
-              onClick={() => {
-                setemailLogin(true);
-              }}
-            >
-              <i class="fa-solid fa-arrow-left"></i> Go Back
-            </div>
-          </div>
-          <div className="loginbtn">
-            <LoginFlowButton text={"Login"} />
-          </div>
-        </form>
-      )}
-      <ToastContainer autoClose={2000} />
+        </div>
+        {isOtpRequested && (
+          <label>
+            OTP:
+            <input type="number" />
+          </label>
+        )}
+        {isOtpRequested && <button>Verify OTP</button>}
+      </form>
     </div>
   );
 };

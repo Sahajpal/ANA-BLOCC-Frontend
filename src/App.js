@@ -18,26 +18,8 @@ import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
 
 function App() {
   return (
-    <div className="app">
-      <Sidebar />
-      <div className="mainContent">
-        <Navbar />
-        <div className="contentDiv">
-          <div className="propertyListDiv">
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-          </div>
-          <div className="mapDivMain">
-            <Map />
-          </div>
-        </div>
-      </div>
+    <div>
+      <Dashboard />
     </div>
   );
 }
