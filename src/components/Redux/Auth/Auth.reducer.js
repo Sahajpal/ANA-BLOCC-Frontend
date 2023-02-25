@@ -7,11 +7,10 @@ import {
 
 const initState = {
   isLogin: JSON.parse(localStorage.getItem("token")) ? true : false,
-  // isLogin: true,
-
   token: JSON.parse(localStorage.getItem("token")) || "",
   isLoading: false,
   isError: false,
+  userData: JSON.parse(localStorage.getItem("user")) || "",
 };
 
 export const Auth_reducer = (state = initState, { type, payload }) => {
@@ -27,7 +26,7 @@ export const Auth_reducer = (state = initState, { type, payload }) => {
         isError: false,
         isLogin: true,
         token: payload,
-        vendorId: payload,
+        userData: payload,
       };
     case LOGIN_FAILURE:
       return {
@@ -43,7 +42,7 @@ export const Auth_reducer = (state = initState, { type, payload }) => {
         isError: false,
         token: "",
         isLogin: false,
-        vendorId: "",
+        userData: "",
       };
     default:
       return state;

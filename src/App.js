@@ -22,8 +22,8 @@ import UserSigin from "./pages/UserSigin/UserSigin";
 function App() {
   return (
     <div className="app.css">
-      <Dashboard />
-      {/* <SignIn /> */}
+      {/* <Dashboard /> */}
+      <SignIn />
       {/* <UserSigin /> */}
     </div>
   );
