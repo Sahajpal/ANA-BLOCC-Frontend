@@ -1,14 +1,17 @@
 .sidebarMain {
   box-sizing: border-box;
   width: 280px;
-  height: 100vh;
+  height: 100%;
   background-color: #f1f2f7;
   padding: 15px 27px;
 }
 .sidebarLogoDiv {
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   margin-bottom: 48px;
   padding: 6px 38px;
+  background-color: #d9d9d9;
 }
 .sidebarList > div {
   display: flex;
