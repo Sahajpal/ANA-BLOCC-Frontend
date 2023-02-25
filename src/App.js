@@ -22,9 +22,9 @@ import UserSigin from "./pages/UserSigin/UserSigin";
 function App() {
   return (
     <div className="app.css">
-      {/* <Dashboard /> */}
+      <Dashboard />
       {/* <SignIn /> */}
-      <UserSigin />
+      {/* <UserSigin /> */}
     </div>
   );
 }
