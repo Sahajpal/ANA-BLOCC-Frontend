@@ -24,8 +24,9 @@ body {
   display: flex;
 }
 .propertyListDiv {
+  box-sizing: border-box;
   width: 363px;
-  padding: 16px 40px;
-  height: 100%;
+  padding: 16px 20px;
+  height: calc(100vh - 65px);
   overflow: auto;
 }

@@ -16,6 +16,13 @@ function App() {
         <div className="contentDiv">
           <div className="propertyListDiv">
             <Card type={"city"} />
+            <Card type={"city"} />
+            <Card type={"city"} />
+            <Card type={"city"} />
+            <Card type={"city"} />
+            <Card type={"city"} />
+            <Card type={"city"} />
+            <Card type={"city"} />
           </div>
           <div>map</div>
         </div>

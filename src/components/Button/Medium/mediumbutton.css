@@ -10,3 +10,6 @@
   font-weight: 400;
   font-size: 14px;
 }
+.mediumbutton:hover {
+  background: #6979de;
+}
