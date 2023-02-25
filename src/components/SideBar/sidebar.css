@@ -1,0 +1,28 @@
+.sidebarMain {
+  box-sizing: border-box;
+  width: 280px;
+  height: 100vh;
+  background-color: #f1f2f7;
+  padding: 15px 27px;
+}
+.sidebarLogoDiv {
+  box-sizing: border-box;
+  margin-bottom: 48px;
+  padding: 6px 38px;
+}
+.sidebarList > div {
+  display: flex;
+  align-self: center;
+  padding: 15px 23px;
+  gap: 15px;
+  font-weight: 400;
+  font-size: 12px;
+  border-left: 2px solid transparent;
+
+  color: #787f89;
+  cursor: pointer;
+}
+.sidebarList > div:hover {
+  border-left: 2px solid #5a6acf;
+  background-color: #e4e7f5;
+}

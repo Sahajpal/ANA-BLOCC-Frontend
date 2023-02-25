@@ -12,13 +12,13 @@
 .loginForm {
   padding: 48px 36px;
   border: 1px solid grey;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
 }
 .loginMainDiv input {
   box-sizing: border-box;
-  width: 400px;
+  width: 300px;
   padding: 8px 16px;
 }
 
