@@ -146,7 +146,7 @@ function Map() {
     const polygon3 = generatePolygon(plots[3], colors[3]);
     const polygon4 = generatePolygon(plots[4], colors[4]);
     const polygon5 = generatePolygon(plots[5], colors[5]);
-    const polygon6 = generatePolygon(plots[6], colors[6]);
+    const polygon6 = generatePolygon(plots[0], colors[0]);
 
     polygon1.setMap(map);
     polygon2.setMap(map);
@@ -156,7 +156,7 @@ function Map() {
     polygon6.setMap(map);
   }, []);
 
-  return <div ref={mapRef} />;
+  return <div ref={mapRef} style={{ height: "100vh", width: "100%" }}/>;
 }
 
 export default Map;
