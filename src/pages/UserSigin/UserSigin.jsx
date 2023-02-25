@@ -16,9 +16,19 @@ const SignIn = () => {
   const [otp, setotp] = useState();
 
   const emailLoginFunction = (e) => {
-    if (email !== "anablocc@gmail.com" || password !== "12345") {
+    if (!email || !password) {
       toast.error("invalid credential!");
     } else {
+      fetch(process.env.REACT_APP_BASE_URL + `admin`, {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        // headers: { "content-type": "application/json" },
+        mode: "no-cors",
+      })
+        .then((d) => d.json())
+        .then((res) => {
+          console.log(res);
+        });
       navigate("home");
     }
   };
