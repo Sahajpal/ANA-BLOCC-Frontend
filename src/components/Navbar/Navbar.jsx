@@ -4,9 +4,9 @@ import connectWallet from "../../utils/wallet";
 
 const Navbar = () => {
   async function attemptConnectWallet() {
-    console.log('Tryna connect Wallet...');
+    console.log("Tryna connect Wallet...");
     await connectWallet();
-    console.log('Voila');
+    console.log("Voila");
   }
   return (
     <div className="mainNav">
@@ -16,7 +16,7 @@ const Navbar = () => {
         <div>Register Sale</div>
       </div>
       <div className="navProfileDiv">Profile</div>
-      <button onClick={ () => attemptConnectWallet() }> Connect Wallet</button>
+      <button onClick={() => attemptConnectWallet()}> Connect Wallet</button>
     </div>
   );
 };
