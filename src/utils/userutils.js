@@ -1,6 +1,6 @@
 import getConnectedContract from './wallet';
 import { getOwnershipInfo } from './backend/ownership';
-import { getUserInfo } from './backend/user';
+import { getUserInfoWithAadhar } from './backend/user';
 import fetchUtil from './backend/utils';
 
 const errorToMessageMap = {
@@ -21,9 +21,12 @@ const errorToMessageMap = {
 //     initiateSaleFromAdmin(result.hash);
 // }
 
-async function initiateSaleUtil(ownershipId, buyerId) {
+// baseUrl/ownerships/:ownershipId/action/:action
+// action = SALE_INITIATED, SALE_ACCEPTED, DOC_UPLOADED, DOC_REJECT, DOC_APPROVED, TX_INITIATED, TX_ACKNOWLEDGED, CLOSED, CANCEL_SALE
+
+async function initiateSaleUtil(ownershipId, buyerAadhar) {
     const ownershipPromise = getOwnershipInfo(ownershipId);
-    const buyerPromise = getUserInfo(buyerId);
+    const buyerPromise = getUserInfoWithAadhar(buyerAadhar);
     const contractPromise = getConnectedContract();
     const [ownership, buyer, contract] = await Promise.all([ownershipPromise, buyerPromise, contractPromise]);
     const { ownershipId } = ownership;
@@ -39,7 +42,7 @@ async function initiateSaleUtil(ownershipId, buyerId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in initiating sale : ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: ownershipId, buyerId, transactionHash: result.hash })
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/SALE_INITIATED`, { body: { buyerId: buyer._id, transactionHash: result.hash } })
     return { success: true };
 }
 
@@ -53,7 +56,7 @@ async function acceptSaleUtil(ownershipId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in accepting sale. ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: { ownershipId, transactionHash: result.hash }});
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/SALE_ACCEPTED`, { body: { transactionHash: result.hash }});
     return { success: true };
 }
 
@@ -71,7 +74,7 @@ async function approveDocumentsUtil(ownershipId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in approving documents. ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: { ownershipId, transactionHash: result.hash }});
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/DOC_APPROVED`, { body: { transactionHash: result.hash }});
     return { success: true };
 }
 
@@ -85,7 +88,7 @@ async function rejectDocumentsUtil(ownershipId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in rejecting documents. ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: { ownershipId, transactionHash: result.hash }});
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/DOC_REJECT`, { body: { transactionHash: result.hash }});
     return { success: true };
 }
 
@@ -99,7 +102,7 @@ async function initiatePaymentUtil(ownershipId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in initiating payments. ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: { ownershipId, transactionHash: result.hash }});
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/TX_INITIATED`, { body: { transactionHash: result.hash }});
     return { success: true };
 }
 
@@ -113,7 +116,7 @@ async function acknowledgePaymentUtil(ownershipId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in acknowledging payments. ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: { ownershipId, transactionHash: result.hash }});
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/TX_ACKNOWLEDGED`, { body: { transactionHash: result.hash }});
     return { success: true };
 }
 
@@ -139,7 +142,7 @@ async function closeSaleUtil(ownershipId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in closing sale. ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: { transactionHash: result.hash, newOwnershipId: result.ownershipId, oldOwnershipId: ownershipId } });
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/CLOSED`, { body: { transactionHash: result.hash, newOwnershipId: result.ownershipId } });
 }
 
 async function cancelSaleUtil(ownershipId) {
@@ -152,7 +155,7 @@ async function cancelSaleUtil(ownershipId) {
         const processedReason = reason.replace('execution reverted: ','');
         return { success: false, reason: `Error in cancelling sales. ${errorToMessageMap[processedReason]}` };
     }
-    fetchUtil.post('', { body: { ownershipId, transactionHash: result.hash }});
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/CANCEL_SALE`, { body: { transactionHash: result.hash }});
     return { success: true };
 }
 
