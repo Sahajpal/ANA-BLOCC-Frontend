@@ -1,6 +1,7 @@
 import getConnectedContract from './wallet';
 import { getOwnershipInfo } from './backend/ownership';
 import { getUserInfoWithAadhar } from './backend/user';
+
 import fetchUtil from './backend/utils';
 
 const errorToMessageMap = {
@@ -28,7 +29,9 @@ async function initiateSaleUtil(ownershipId, buyerAadhar) {
     const ownershipPromise = getOwnershipInfo(ownershipId);
     const buyerPromise = getUserInfoWithAadhar(buyerAadhar);
     const contractPromise = getConnectedContract();
-    const [ownership, buyer, contract] = await Promise.all([ownershipPromise, buyerPromise, contractPromise]);
+    const [ownership, buyer, contractRes] = await Promise.all([ownershipPromise, buyerPromise, contractPromise]);
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     const { ownershipId } = ownership;
     const { walletAddress: buyerAddress } = buyer;
     let result;
@@ -47,7 +50,9 @@ async function initiateSaleUtil(ownershipId, buyerAadhar) {
 }
 
 async function acceptSaleUtil(ownershipId) {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     let result;
     try {
         result = await contract.acceptSale(ownershipId);
@@ -65,7 +70,9 @@ async function uploadDocumentsUtil() {
 }
 
 async function approveDocumentsUtil(ownershipId) {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     let result;
     try {
         result = await contract.approveDocuments(ownershipId);
@@ -79,7 +86,9 @@ async function approveDocumentsUtil(ownershipId) {
 }
 
 async function rejectDocumentsUtil(ownershipId) {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     let result;
     try {
         result = await contract.rejectDocuments(ownershipId);
@@ -93,7 +102,9 @@ async function rejectDocumentsUtil(ownershipId) {
 }
 
 async function initiatePaymentUtil(ownershipId) {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     let result;
     try {
         result = await contract.initiatePayment(ownershipId);
@@ -107,7 +118,9 @@ async function initiatePaymentUtil(ownershipId) {
 }
 
 async function acknowledgePaymentUtil(ownershipId) {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     let result;
     try {
         result = await contract.acknowledgePayment(ownershipId);
@@ -121,7 +134,9 @@ async function acknowledgePaymentUtil(ownershipId) {
 }
 
 async function approveDocumentsAndGetId(hashArray, buyerAddress, contract) {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     const result = await contract.approveDocumentsAndMarkSale(hashArray, buyerAddress);
     return new Promise((resolve, reject) => {
         contract.on('CloseSale', res => {
@@ -146,7 +161,9 @@ async function closeSaleUtil(ownershipId) {
 }
 
 async function cancelSaleUtil(ownershipId) {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     let result;
     try {
         result = await contract.cancelSale(ownershipId);
@@ -160,7 +177,9 @@ async function cancelSaleUtil(ownershipId) {
 }
 
 async function readSale() {
-    const contract = await getConnectedContract();
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
     const res = await contract.getOpenSales();
     console.log(JSON.stringify(res));
 }

@@ -8,6 +8,7 @@ import SignIn from "./pages/signin/SignIn";
 import SignUp from "./pages/signup/SignUp";
 import Successmodal from "./components/Modal/Successmodal";
 import Map from "./components/Map/Map";
+import Purchase from "./components/Purchase/Purchase"
 import "./App.css";
 import { GeneralHistoryCard } from "./components/GeneralHistoryCard/GeneralHistoryCard";
 import OwnershipHistoryCard from "./components/OwnershipHistoryCard/OwnershipHistoryCard";
@@ -15,29 +16,12 @@ import PropertyDetailsCard from "./components/PropertyDetailsCard/PropertyDetail
 import DocumentsCard from "./components/DocumentsCard/DocumentsCard";
 import ActionCard from "./components/ActionCard/ActionCard";
 import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
+import SeeDetails from "./components/SeeDetails/SeeDetails";
 
 function App() {
   return (
-    <div className="app">
-      <Sidebar />
-      <div className="mainContent">
-        <Navbar />
-        <div className="contentDiv">
-          <div className="propertyListDiv">
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-          </div>
-          <div className="mapDivMain">
-            <Map />
-          </div>
-        </div>
-      </div>
+    <div>
+      <Purchase />
     </div>
   );
 }

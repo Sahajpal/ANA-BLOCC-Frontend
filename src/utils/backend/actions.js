@@ -1,7 +1,8 @@
 import fetchUtil from "./utils";
 
 const registerWallet = async (walletAddress) => {
-    fetchUtil('/users/wallet', { body: { address: walletAddress } });
+    const result = await fetchUtil.post('/users/wallet', { body: { address: walletAddress } });
+    return result;
 }
 
 export {

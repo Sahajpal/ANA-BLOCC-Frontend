@@ -1,0 +1,13 @@
+.dashboardMain {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.dashboardMainContent {
+  flex: 1;
+}
+.contentDiv {
+  display: flex;
+  height: calc(100vh - 70px);
+  width: 100%;
+}

@@ -1,0 +1,34 @@
+.RSTabMainDiv {
+  border: 1px solid #d5daf2;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  margin: 16px;
+
+  height: calc(100vh - 90px);
+  justify-content: space-between;
+}
+.RSTabMainDivList {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* height: calc(100vh - 190px); */
+  overflow: auto;
+}
+.RSTabMainDivBtnDiv {
+  height: 64px;
+  padding: 12px 20px;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid #d5daf2;
+}
+.RSTabMainDivBtnDivSub {
+  width: 180px;
+}
