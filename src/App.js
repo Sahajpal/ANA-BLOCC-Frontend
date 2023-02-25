@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/SideBar/Sidebar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import SignIn from "./pages/signin/SignIn";
+import Map from "./components/Map/Map";
 import "./App.css";
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
             <Card type={"city"} />
             <Card type={"city"} />
           </div>
-          <div>map</div>
+          <div>
+            <Map />
+          </div>
         </div>
       </div>
     </div>
