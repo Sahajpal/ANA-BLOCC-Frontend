@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <div className="contentDiv">
           <div className="propertyListDiv">
-            <Card />
+            <Card type={"city"} />
           </div>
           <div>map</div>
         </div>

@@ -19,6 +19,7 @@
   font-size: 14px;
   color: #212121;
   border-bottom: 1px solid transparent;
+  cursor: pointer;
 }
 .navLeftDiv > div:hover {
   color: #5a6acf;

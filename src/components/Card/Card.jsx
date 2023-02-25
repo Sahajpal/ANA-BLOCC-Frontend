@@ -2,14 +2,18 @@ import React from "react";
 import MediumButton from "../Button/Medium/MediumButton";
 import "./card.css";
 
-const Card = () => {
+const Card = ({ type }) => {
   return (
     <div className="cardMainDiv">
       <div className="cardPropertyHeading">Property 1</div>
       <div className="cardPropertyStatusMain">
         <div className="cardownstatus">
           <div className="cardimgDiv">
-            <img src="./images/owner.svg" alt="" /> <div>owner</div>
+            <img
+              src={type == "owner" ? "./images/owner.svg" : "./images/city.svg"}
+              alt=""
+            />{" "}
+            <div>{type}</div>
           </div>
           <div className="cardPersonName"> Sheldon Cooper</div>
         </div>
