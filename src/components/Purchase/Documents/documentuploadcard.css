@@ -1,0 +1,54 @@
+.DocumentsUploadCard {
+    width: 100%;
+    border: 1px solid #d5daf2;
+    border-radius: 4px;
+    padding: 16px 24px;
+    box-sizing: border-box;
+  }
+
+  .DocumentsUploadCardDivName {
+    width: 100%;
+    display: flex;
+    gap: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #757575;
+    padding-bottom: 12px;
+  }
+
+  .DocumentsUploadCardDivName > div {
+    font-weight: 500;
+    font-size: 16px;
+    color: #091982;
+  }
+
+  .DocumentsUploadCardTop {
+    border-bottom: 1px solid #d5daf2;
+    padding-bottom: 12px;
+  }
+
+  .DocumentsUploadCardList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0px;
+  }
+  
+  .DocumentsUploadCardDocBtn {
+    border-radius: 8px;
+    background-color: #656A88;
+    padding: 8px 16px;
+    text-align: center;
+    color: white;
+    width: 150px;
+    box-sizing: border-box;
+    float: right;
+  }
+
+  .DocumentsUploadCardlabel {
+    font-weight: 400;
+    font-size: 14px;
+    color: #212121;
+    padding-bottom: 8px;
+  }
+  
