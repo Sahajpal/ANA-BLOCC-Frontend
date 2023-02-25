@@ -1,0 +1,63 @@
+.PropertycardMainDiv {
+  box-sizing: border-box;
+
+  padding: 16px 24px;
+  border-radius: 4px;
+  border: 1px solid #d5daf2;
+}
+.PropertycardMainDiv:hover {
+  border: 1px solid #5a6acf;
+}
+
+.PropertycardPropertyHeading {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #091982;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #d5daf2;
+  margin-bottom: 24px;
+}
+.PropertycardContent {
+  width: 100%;
+}
+.PropertycardImageContainer {
+  display: flex;
+  width: 100%;
+
+  justify-content: space-between;
+}
+.ropertycardMainImg {
+  max-width: 70%;
+}
+.PropertycardMainImg > img {
+  max-width: 600px;
+  /* max-height: 400px; */
+}
+.PropertycardSubImgDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 30%;
+}
+.PropertycardSubImgDiv > div > img {
+  max-width: 100%;
+  max-height: 195px;
+}
+.propertuCardAddress > div > div:nth-child(1) {
+  font-weight: 400;
+  font-size: 12px;
+  color: #757575;
+  margin-bottom: 12px;
+  margin-top: 24px;
+  box-sizing: border-box;
+}
+
+.propertuCardAddress {
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #212121;
+}
