@@ -1,52 +1,65 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './documentuploadcard.css'
 import Upload from './../Upload/Upload'
+import { useStorageUpload } from '@thirdweb-dev/react'
 import axios from 'axios'
+import { create } from 'ipfs-http-client'
+import { Buffer } from 'buffer'
 
-class DocumentsUploadCard extends Component {
-  onFileUpload = () => {
-    const formData = new FormData()
+  /* configure Infura auth settings */
+  const projectId = process.env.REACT_APP_INFURA_KEY
+  const projectSecret = process.env.REACT_APP_INFURA_SECRET_KEY
+  const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+  
+  /* create the client */
+  const client = create({
+    host: 'ipfs.infura.io',
+    port: 5001,
+    protocol: 'https',
+    headers: {
+        authorization: auth,
+    },
+  })
 
-    formData.append(
-      'myFile',
-      this.state.selectedFile,
-      this.state.selectedFile.name,
-    )
-    axios.post('api/uploadfile', formData)
+function DocumentsUploadCard() {
+
+  const [fileUrl, updateFileUrl] = useState(``)
+  async function onChange(e) {
+    const file = e.target.files[0]
+    try {
+      const added = await client.add(file)
+      const url = `https://infura-ipfs.io/ipfs/${added.path}`
+      updateFileUrl(url)
+      console.log("IPFS URI: ", url)
+      console.log(process.env.REACT_APP_INFURA_KEY)
+    } catch (error) {
+      console.log('Error uploading file: ', error)
+    }  
   }
-  fileData = () => {
-    if (this.state.selectedFile) {
-      return
-    }
-  }
-  render() {
-    return (
-      <div className="DocumentsUploadCard">
-        <div className="DocumentsUploadCardTop">
-          <div className="DocumentsUploadCardDivName">
-            <div> Upload the documents required for the purchase</div>
-          </div>
+  return (
+    <div className="DocumentsUploadCard">
+      <div className="DocumentsUploadCardTop">
+        <div className="DocumentsUploadCardDivName">
+          <div> Upload the documents required for the purchase</div>
         </div>
-
-        <div className="DocumentsUploadCardList">
-          <div>
-            <div className="DocumentsUploadCardlabel">Mutation doc.</div>
-            <Upload></Upload>
-          </div>
-          <div>
-            <div className="DocumentsUploadCardlabel">Registration doc.</div>
-            <Upload></Upload>
-          </div>
-        </div>
-        <button
-          className="DocumentsUploadCardDocBtn"
-          onClick={this.onFileUpload}
-        >
-          Upload Docs
-        </button>
       </div>
-    )
-  }
+
+      <div className="DocumentsUploadCardList">
+        <div>
+          <div className="DocumentsUploadCardlabel">Mutation doc.</div>
+          <div>
+            <input type="file" onChange={onChange} required />
+          </div>
+        </div>
+        <div>
+          <div className="DocumentsUploadCardlabel">Registration doc.</div>
+        </div>
+      </div>
+      <button className="DocumentsUploadCardDocBtn">
+        Upload Docs
+      </button>
+    </div>
+  )
 }
 
 export default DocumentsUploadCard

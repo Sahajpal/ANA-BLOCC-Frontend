@@ -22,17 +22,12 @@ const errorToMessageMap = {
 //     initiateSaleFromAdmin(result.hash);
 // }
 
-// baseUrl/ownerships/:ownershipId/action/:action
-// action = SALE_INITIATED, SALE_ACCEPTED, DOC_UPLOADED, DOC_REJECT, DOC_APPROVED, TX_INITIATED, TX_ACKNOWLEDGED, CLOSED, CANCEL_SALE
-
 async function initiateSaleUtil(ownershipId, buyerAadhar) {
-    const ownershipPromise = getOwnershipInfo(ownershipId);
     const buyerPromise = getUserInfoWithAadhar(buyerAadhar);
     const contractPromise = getConnectedContract();
-    const [ownership, buyer, contractRes] = await Promise.all([ownershipPromise, buyerPromise, contractPromise]);
+    const [buyer, contractRes] = await Promise.all([buyerPromise, contractPromise]);
     if (!contractRes.success) return contractRes;
     const { contract } = contractRes.data;
-    const { ownershipId } = ownership;
     const { walletAddress: buyerAddress } = buyer;
     let result;
     try{
