@@ -9,10 +9,9 @@ const initState = {
   isLogin: JSON.parse(localStorage.getItem("token")) ? true : false,
   // isLogin: true,
 
-  token: loadData("token") || "",
+  token: JSON.parse(localStorage.getItem("token")) || "",
   isLoading: false,
   isError: false,
-  vendorId: loadData("vendorId") || "",
 };
 
 export const Auth_reducer = (state = initState, { type, payload }) => {
@@ -22,7 +21,6 @@ export const Auth_reducer = (state = initState, { type, payload }) => {
         ...state,
       };
     case LOGIN_SUCCESS:
-      saveData("vendorId", payload);
       return {
         ...state,
         isLoading: false,
@@ -38,7 +36,6 @@ export const Auth_reducer = (state = initState, { type, payload }) => {
         isError: true,
       };
     case LOGOUT:
-      saveData("vendorId", "");
       localStorage.clear();
       return {
         ...state,
