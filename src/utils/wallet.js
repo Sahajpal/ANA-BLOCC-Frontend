@@ -1,31 +1,27 @@
 import { ethers } from "ethers";
 import abi from "./abi/abi.json";
+import { registerWallet } from "./backend/actions";
 
 async function connectWallet() {
   await window.ethereum.enable();
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  return signer;
-  // todo @sahaj
-  // await signer.getAddress() returns the address
-  // do a call to BE with jwt and address in the body here - it can be a duplicate call but we do not care.
+  const address = await signer.getAddress();
+  const walletResult = await registerWallet(address);
+  if (!walletResult.success) return walletResult;
+  return { success: true, data: { signer } };
 }
 
 async function getConnectedContract() {
   const contract_address = "0xFC2AE819bECd3BDdA4C8a838dCfA2CE4E64eeAD6";
-  const signer = await connectWallet();
+  const signerRes = await connectWallet();
+  if (!signerRes.success) return signerRes;
   const connectedContract = new ethers.Contract(
     contract_address,
     abi.abi,
-    signer
+    signerRes.data.signer,
   );
-  connectedContract.on("InitiateSale", (ownershipId) => {
-    console.log("OwnershipId event emitted : ", ownershipId.toNumber());
-  });
-  connectedContract.on("CloseSale", (ownershipId) => {
-    console.log("OwnershipId closed event emitted: ", ownershipId.toNumber());
-  });
-  return connectedContract;
+  return { success: true, data: { connectedContract } };
 }
 
 export default getConnectedContract;

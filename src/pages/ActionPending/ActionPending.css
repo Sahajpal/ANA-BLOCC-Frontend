@@ -1,0 +1,16 @@
+.ActionPendingMain {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 70px);
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  padding: 20px 40px;
+}
+.ActionPendingMainDefault {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: calc(100vh - 90px);
+  overflow: auto;
+}
