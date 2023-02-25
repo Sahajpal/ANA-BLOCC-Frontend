@@ -1,6 +1,6 @@
 .dashboardMain {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 .dashboardMainContent {
@@ -8,22 +8,6 @@
 }
 .contentDiv {
   display: flex;
-}
-.propertyListDiv {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  box-sizing: border-box;
-  width: 380px;
-  padding: 16px 20px;
-  height: calc(100vh - 65px);
-  overflow: auto;
-  scrollbar-width: 2px !important;
-}
-.mapDivMain {
-  padding: 10px;
-  box-sizing: border-box;
-  flex: 1;
   height: calc(100vh - 70px);
-  overflow: auto;
+  width: 100%;
 }

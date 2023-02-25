@@ -19,7 +19,7 @@ import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
 function App() {
   return (
     <div>
-      <SignIn />
+      <Dashboard />
     </div>
   );
 }

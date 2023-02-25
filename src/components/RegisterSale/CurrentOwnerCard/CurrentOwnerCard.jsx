@@ -1,13 +1,12 @@
 import React from "react";
 import "./CurrentOwnerCard.css";
 
-const CurrentOwnerCard = () => {
+const CurrentOwnerCard = ({ text }) => {
   return (
     <div className="CurrentOwnerCard">
       <div className="CurrentOwnerCardTop">
         <div className="CurrentOwnerCardDivName">
-          <div> User Full Name</div>
-          (Current Owner)
+          <div> User Full Name</div>({text})
         </div>
         <div className="CurrentOwnerCardDivAdd">
           L376 / A, 14th B Cross Rd, Sector 6, HSR Layout, Bengaluru, Karnataka
