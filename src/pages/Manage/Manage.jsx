@@ -7,8 +7,9 @@ import RegisterSaleTab from "../../components/Tabs/RegisterSaleTab/RegisterSaleT
 import SeeDetails from "../../components/SeeDetails/SeeDetails";
 
 const Manage = () => {
-  const [tab, settab] = useState(2);
-  const [seedetails, setseedetails] = useState(true);
+  const [tab, settab] = useState(1);
+  const [seedetails, setseedetails] = useState(false);
+
   const changedetails = () => {
     setseedetails(false);
   };
@@ -18,9 +19,15 @@ const Manage = () => {
         <>
           <div className="manageMainDivLeft">
             <div className="navLeftDiv">
-              <div onClick={() => settab(1)}>All</div>
-              <div onClick={() => settab(2)}>Documents</div>
-              <div onClick={() => settab(3)}>Register Sale</div>
+              <div id={tab == 1 ? "activNavTab" : ""} onClick={() => settab(1)}>
+                All
+              </div>
+              <div id={tab == 2 ? "activNavTab" : ""} onClick={() => settab(2)}>
+                Documents
+              </div>
+              <div id={tab == 3 ? "activNavTab" : ""} onClick={() => settab(3)}>
+                Register Sale
+              </div>
             </div>
             <div className="propertyListDiv">
               <div

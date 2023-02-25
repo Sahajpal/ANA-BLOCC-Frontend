@@ -14,7 +14,7 @@
   gap: 24px;
   box-sizing: border-box;
   width: 380px;
-  padding: 16px 20px;
+  padding: 16px 20px 16px 40px;
   height: calc(100vh - 65px);
   overflow: auto;
 }
@@ -35,6 +35,12 @@
   cursor: pointer;
 }
 .navLeftDiv > div:hover {
+  color: #5a6acf;
+  border-bottom: 1px solid #5a6acf;
+  background-color: #f1f2fc;
+  transition: 0.5s;
+}
+#activNavTab {
   color: #5a6acf;
   border-bottom: 1px solid #5a6acf;
   background-color: #f1f2fc;

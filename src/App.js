@@ -8,7 +8,7 @@ import SignIn from "./pages/signin/SignIn";
 import SignUp from "./pages/signup/SignUp";
 import Successmodal from "./components/Modal/Successmodal";
 import Map from "./components/Map/Map";
-import Purchase from "./components/Purchase/Purchase"
+import Purchase from "./components/Purchase/Purchase";
 import "./App.css";
 import { GeneralHistoryCard } from "./components/GeneralHistoryCard/GeneralHistoryCard";
 import OwnershipHistoryCard from "./components/OwnershipHistoryCard/OwnershipHistoryCard";
@@ -17,11 +17,14 @@ import DocumentsCard from "./components/DocumentsCard/DocumentsCard";
 import ActionCard from "./components/ActionCard/ActionCard";
 import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
 import SeeDetails from "./components/SeeDetails/SeeDetails";
+import UserSigin from "./pages/UserSigin/UserSigin";
 
 function App() {
   return (
-    <div>
-      <Purchase />
+    <div className="app.css">
+      {/* <Dashboard /> */}
+      {/* <SignIn /> */}
+      <UserSigin />
     </div>
   );
 }

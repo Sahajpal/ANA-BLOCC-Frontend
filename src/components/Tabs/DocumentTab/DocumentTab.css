@@ -6,6 +6,7 @@
 
   box-sizing: border-box;
   margin: 16px;
+  margin-right: 40px;
 
   height: calc(100vh - 90px);
   justify-content: space-between;

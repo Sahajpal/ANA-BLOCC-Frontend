@@ -10,8 +10,10 @@ const Navbar = () => {
   }
   return (
     <div className="mainNav">
-      <div className="navProfileDiv">Profile</div>
-      <button onClick={() => attemptConnectWallet()}> Connect Wallet</button>
+      <div className="navProfileDiv"></div>
+      <button className="navWalletBtn" onClick={() => attemptConnectWallet()}>
+        Connect Wallet
+      </button>
     </div>
   );
 };
