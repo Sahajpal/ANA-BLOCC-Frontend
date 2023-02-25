@@ -19,12 +19,6 @@ async function getConnectedContract() {
     abi.abi,
     signer
   );
-  connectedContract.on("InitiateSale", (ownershipId) => {
-    console.log("OwnershipId event emitted : ", ownershipId.toNumber());
-  });
-  connectedContract.on("CloseSale", (ownershipId) => {
-    console.log("OwnershipId closed event emitted: ", ownershipId.toNumber());
-  });
   return connectedContract;
 }
 
