@@ -4,6 +4,7 @@ import Card from "../../components/Card/Card";
 import Map from "../../components/Map/Map";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/SideBar/Sidebar";
+import Manage from "../Manage/Manage";
 import "./dashboard.css";
 
 const Dashboard = () => {
@@ -13,19 +14,9 @@ const Dashboard = () => {
       <div className="dashboardMainContent">
         <Navbar />
         <div className="contentDiv">
-          <div className="propertyListDiv">
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-            <Card type={"city"} />
-          </div>
-          <div className="mapDivMain">
-            <Map />
-          </div>
+          <Routes>
+            <Route path={""} element={<Manage />} />
+          </Routes>
         </div>
       </div>
     </div>

@@ -1,0 +1,45 @@
+.manageMainDiv {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+.propertyListDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  width: 380px;
+  padding: 16px 20px;
+  height: calc(100vh - 65px);
+  overflow: auto;
+}
+.manageMainDivRight {
+  padding: 10px;
+  box-sizing: border-box;
+  flex: 1;
+  height: calc(100vh - 70px);
+  overflow: auto;
+}
+.manageMainDivLeft {
+  display: flex;
+  flex-direction: column;
+}
+.navLeftDiv {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+.navLeftDiv > div {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #212121;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+.navLeftDiv > div:hover {
+  color: #5a6acf;
+  border-bottom: 1px solid #5a6acf;
+  background-color: #f1f2fc;
+}

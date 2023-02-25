@@ -10,11 +10,6 @@ const Navbar = () => {
   }
   return (
     <div className="mainNav">
-      <div className="navLeftDiv">
-        <div>All</div>
-        <div>Properties in-transit</div>
-        <div>Register Sale</div>
-      </div>
       <div className="navProfileDiv">Profile</div>
       <button onClick={() => attemptConnectWallet()}> Connect Wallet</button>
     </div>
