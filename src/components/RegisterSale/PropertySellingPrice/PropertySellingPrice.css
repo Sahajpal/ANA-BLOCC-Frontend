@@ -1,0 +1,31 @@
+.PropertySellingPriceMain {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 16px 24px;
+  gap: 20px;
+}
+.PropertySellingPriceMain > div {
+  display: flex;
+  justify-content: space-between;
+}
+.PropertySellingPriceMain > div:nth-child(1) {
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #091982;
+}
+.PropertySellingPriceMain > div:nth-child(2) {
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #757575;
+}
+.PropertySellingPriceMain > div:last-child {
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #091982;
+  padding-top: 24px;
+  border-top: 1px solid #d5daf2;
+}
