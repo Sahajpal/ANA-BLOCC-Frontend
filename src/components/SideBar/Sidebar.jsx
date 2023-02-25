@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./sidebar.css";
 
 const Sidebar = () => {
-  const [admin, setadmin] = useState(true);
+  const [admin, setadmin] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="sidebarMain">
       <div className="sidebarLogoDiv">
@@ -25,11 +27,19 @@ const Sidebar = () => {
         </div>
       ) : (
         <div className="sidebarList">
-          <div>
+          <div
+            onClick={() => {
+              navigate("");
+            }}
+          >
             <img src="./images/property.svg" alt="" />
             <div>My Properties</div>
           </div>
-          <div>
+          <div
+            onClick={() => {
+              navigate("action");
+            }}
+          >
             <img src="./images/action.svg" alt="" />
             <div>Actions Pending</div>
           </div>

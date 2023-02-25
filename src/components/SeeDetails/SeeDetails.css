@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  gap: 8px;
 }
 .seeDetailsAdd {
   font-weight: 500;

@@ -15,11 +15,13 @@ import PropertyDetailsCard from "./components/PropertyDetailsCard/PropertyDetail
 import DocumentsCard from "./components/DocumentsCard/DocumentsCard";
 import ActionCard from "./components/ActionCard/ActionCard";
 import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
+import SeeDetails from "./components/SeeDetails/SeeDetails";
 
 function App() {
   return (
     <div>
       <Dashboard />
+      {/* <SeeDetails /> */}
     </div>
   );
 }
