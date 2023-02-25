@@ -5,7 +5,9 @@ const Sidebar = () => {
   const [admin, setadmin] = useState(true);
   return (
     <div className="sidebarMain">
-      <div className="sidebarLogoDiv">Logo</div>
+      <div className="sidebarLogoDiv">
+        <img src="./images/logo.svg" alt="" />
+      </div>
       {admin ? (
         <div className="sidebarList">
           <div>

@@ -12,12 +12,12 @@ import OwnershipHistoryCard from "./components/OwnershipHistoryCard/OwnershipHis
 import PropertyDetailsCard from "./components/PropertyDetailsCard/PropertyDetailsCard";
 import DocumentsCard from "./components/DocumentsCard/DocumentsCard";
 import ActionCard from "./components/ActionCard/ActionCard";
+import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
 
 function App() {
-  
   return (
-    <div>
-      {/* <Sidebar />
+    <div className="app">
+      <Sidebar />
       <div className="mainContent">
         <Navbar />
         <div className="contentDiv">
@@ -35,12 +35,7 @@ function App() {
             <Map />
           </div>
         </div>
-      </div> */}
-      <ActionCard />
-      <GeneralHistoryCard type={"city"} />
-      <OwnershipHistoryCard />
-      <PropertyDetailsCard />
-      <DocumentsCard />
+      </div>
     </div>
   );
 }

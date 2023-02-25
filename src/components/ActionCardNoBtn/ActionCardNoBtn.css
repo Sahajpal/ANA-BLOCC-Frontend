@@ -1,0 +1,83 @@
+.actionCardNoBtnMainDivTop {
+  border-radius: 4px;
+  border: 1px solid #d5daf2;
+  box-sizing: border-box;
+  padding-bottom: 0px;
+}
+.actionCardNoBtnMainDiv {
+  padding: 16px 24px;
+}
+.actionCardNoBtnMainDivTop:hover {
+  border: 1px solid #5a6acf;
+}
+
+.actionCardNoBtnPropertyHeading {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+
+  color: #212121;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #d5daf2;
+}
+.actionCardNoBtnPropertyStatusMain {
+  padding-top: 20px;
+}
+.actionCardNoBtnownstatus {
+  width: 100%;
+  display: flex;
+}
+.actionCardNoBtnownstatus > div {
+  width: 50%;
+}
+.actionCardNoBtnimgDiv {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #757575;
+}
+.actionCardNoBtnPropertyStatusMain {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.actionCardNoBtnPersonName {
+  font-weight: 400;
+  font-size: 14px;
+}
+.actionCardNoBtnForSale {
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #149d52;
+}
+.actionCardNoBtnButtonDiv {
+  margin-bottom: 16px;
+}
+.actionCardNoBtnDocDiv {
+  display: flex;
+  gap: 6px;
+}
+.actionCardNoBtnDocDiv > div {
+  font-weight: 400;
+  font-size: 12px;
+
+  text-decoration-line: underline;
+
+  color: #757575;
+}
+.actionCardNoBtnButtonDiv {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  padding: 13px;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  border: none;
+  background: #5a6acf;
+  margin: 0px;
+}
