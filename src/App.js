@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/SideBar/Sidebar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import SignIn from "./pages/signin/SignIn";
+import SignUp from "./pages/signup/SignUp";
+import Successmodal from "./components/Modal/Successmodal";
 import Map from "./components/Map/Map";
 import "./App.css";
 import { GeneralHistoryCard } from "./components/GeneralHistoryCard/GeneralHistoryCard";
