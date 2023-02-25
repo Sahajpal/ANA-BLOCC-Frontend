@@ -1,21 +1,10 @@
-import React, { useState } from 'react'
-import Modal from 'react-modal'
-import './modal.css'
+import React, { useState } from "react";
+import Modal from "react-modal";
+import "./modal.css";
 
-export default function Layout() {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-
-  function openModal() {
-    setModalIsOpen(true)
-  }
-
-  function closeModal() {
-    setModalIsOpen(false)
-  }
-
+export default function Otpmodal({ openModal, closeModal, modalIsOpen }) {
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -35,11 +24,15 @@ export default function Layout() {
         <div className="subHeading1">Buyer's Name</div>
         <div className="subHeading2">Date of Birth</div>
         <div className="enterOtp">Enter OTP</div>
-        <input type="text" className="textBox" placeholder="Enter 4 digit OTP received on your linked number"/>
+        <input
+          type="text"
+          className="textBox"
+          placeholder="Enter 4 digit OTP received on your linked number"
+        />
         <button className="actionButton" onClick={closeModal}>
           Close Modal
         </button>
       </Modal>
     </div>
-  )
+  );
 }

@@ -1,27 +1,27 @@
-import React, { useState } from 'react'
-import Modal from 'react-modal'
-import './successmodal.css'
-import MediumButton from '../Button/Medium/MediumButton'
-import Lottie from 'react-lottie'
-import animationData from '../../lotties/success.json'
+import React, { useState } from "react";
+import Modal from "react-modal";
+import "./successmodal.css";
+import MediumButton from "../Button/Medium/MediumButton";
+import Lottie from "react-lottie";
+import animationData from "../../lotties/success.json";
 
-export default function Layout() {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+export default function Successmodal() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
+      preserveAspectRatio: "xMidYMid slice",
     },
-  }
+  };
 
   function openModal() {
-    setModalIsOpen(true)
+    setModalIsOpen(true);
   }
 
   function closeModal() {
-    setModalIsOpen(false)
+    setModalIsOpen(false);
   }
 
   return (
@@ -34,7 +34,7 @@ export default function Layout() {
         overlayClassName="overlay"
       >
         <div className="animation">
-          <Lottie options={defaultOptions}/>
+          <Lottie options={defaultOptions} />
         </div>
         <h2 className="heading">Payment Successful!</h2>
         <div className="subHeading">
@@ -42,9 +42,9 @@ export default function Layout() {
           'My Properties'
         </div>
         <div className="actionButton">
-          <MediumButton text={'See Details'}></MediumButton>
+          <MediumButton text={"See Details"}></MediumButton>
         </div>
       </Modal>
     </div>
-  )
+  );
 }

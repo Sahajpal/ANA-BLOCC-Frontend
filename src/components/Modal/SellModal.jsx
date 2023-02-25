@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import Modal from 'react-modal'
-import './sellModal.css'
-import MediumButton from '../Button/Medium/MediumButton'
+import React, { useState } from "react";
+import Modal from "react-modal";
+import "./sellModal.css";
+import MediumButton from "../Button/Medium/MediumButton";
 
-export default function Layout() {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+export default function SellModal() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function openModal() {
-    setModalIsOpen(true)
+    setModalIsOpen(true);
   }
 
   function closeModal() {
-    setModalIsOpen(false)
+    setModalIsOpen(false);
   }
 
   return (
@@ -63,10 +63,10 @@ export default function Layout() {
         <input type="text" className="textBox2" placeholder="DD/MM/YYYY" />
         <div className="footer">
           <div className="actionButton">
-            <MediumButton text={'Sell Property'}></MediumButton>
+            <MediumButton text={"Sell Property"}></MediumButton>
           </div>
         </div>
       </Modal>
     </div>
-  )
+  );
 }
