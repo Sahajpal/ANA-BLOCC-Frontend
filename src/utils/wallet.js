@@ -1,4 +1,5 @@
 import { ethers } from  'ethers';
+import abi from './abi/abi.json';
 
 async function connectWallet() {
     await window.ethereum.enable()
@@ -11,10 +12,16 @@ async function connectWallet() {
 }
 
 async function getConnectedContract() {
-    const contract_address = '';
-    const abi = { abi: '' };
+    const contract_address = '0xFC2AE819bECd3BDdA4C8a838dCfA2CE4E64eeAD6';
     const signer = await connectWallet();
     const connectedContract = new ethers.Contract(contract_address, abi.abi, signer);
+    connectedContract.on('InitiateSale', ownershipId => {
+        console.log('OwnershipId event emitted : ', ownershipId.toNumber());
+    });
+    connectedContract.on('CloseSale', ownershipId => {
+        console.log('OwnershipId closed event emitted: ', ownershipId.toNumber());
+    });
+    return connectedContract;
 }
 
 export default getConnectedContract;
