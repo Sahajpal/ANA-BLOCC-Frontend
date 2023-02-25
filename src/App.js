@@ -8,6 +8,7 @@ import SignIn from "./pages/signin/SignIn";
 import SignUp from "./pages/signup/SignUp";
 import Successmodal from "./components/Modal/Successmodal";
 import Map from "./components/Map/Map";
+import Purchase from "./components/Purchase/Purchase"
 import "./App.css";
 import { GeneralHistoryCard } from "./components/GeneralHistoryCard/GeneralHistoryCard";
 import OwnershipHistoryCard from "./components/OwnershipHistoryCard/OwnershipHistoryCard";
@@ -20,8 +21,7 @@ import SeeDetails from "./components/SeeDetails/SeeDetails";
 function App() {
   return (
     <div>
-      <Dashboard />
-      {/* <SeeDetails /> */}
+      <Purchase />
     </div>
   );
 }

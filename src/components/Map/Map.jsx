@@ -103,15 +103,6 @@ const generateGrid = (origin, widthX, widthY) => {
     plot5.layout,
     plot6.layout,
   ];
-  // const plotWithPixelHash = _.map(plots, (plot) => {
-  //   const pixels = _.map(plot.pixels, (pixel) => {
-  //     const { lat, lng } = pixel;
-  //     const hash = getCoordinateHash(lat, lng);
-  //     return { hash, lat, lng };
-  //   });
-  //   return { layout: plot.layout, pixels };
-  // });
-  // return plotWithPixelHash;
   return plots;
 };
 
