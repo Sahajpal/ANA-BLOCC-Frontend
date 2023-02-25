@@ -1,0 +1,35 @@
+.DocumentcardMainDiv {
+  box-sizing: border-box;
+
+  padding: 16px 24px;
+  border-radius: 4px;
+  border: 1px solid #d5daf2;
+}
+.DocumentcardMainDiv:hover {
+  border: 1px solid #5a6acf;
+}
+
+.DocumentcardPropertyHeading {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #091982;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #d5daf2;
+  margin-bottom: 24px;
+}
+.DocumentcardContent {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+.DocumentcardContentSub {
+  display: flex;
+  gap: 6px;
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #5a6acf;
+}

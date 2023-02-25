@@ -7,12 +7,17 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import SignIn from "./pages/signin/SignIn";
 import Map from "./components/Map/Map";
 import "./App.css";
+import { GeneralHistoryCard } from "./components/GeneralHistoryCard/GeneralHistoryCard";
+import OwnershipHistoryCard from "./components/OwnershipHistoryCard/OwnershipHistoryCard";
+import PropertyDetailsCard from "./components/PropertyDetailsCard/PropertyDetailsCard";
+import DocumentsCard from "./components/DocumentsCard/DocumentsCard";
+import ActionCard from "./components/ActionCard/ActionCard";
 
 function App() {
   
   return (
-    <div className="app">
-      <Sidebar />
+    <div>
+      {/* <Sidebar />
       <div className="mainContent">
         <Navbar />
         <div className="contentDiv">
@@ -26,11 +31,16 @@ function App() {
             <Card type={"city"} />
             <Card type={"city"} />
           </div>
-          <div>
+          <div className="mapDivMain">
             <Map />
           </div>
         </div>
-      </div>
+      </div> */}
+      <ActionCard />
+      <GeneralHistoryCard type={"city"} />
+      <OwnershipHistoryCard />
+      <PropertyDetailsCard />
+      <DocumentsCard />
     </div>
   );
 }
