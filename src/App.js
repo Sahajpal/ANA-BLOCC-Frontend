@@ -6,7 +6,7 @@ import Sidebar from "./components/SideBar/Sidebar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import SignIn from "./pages/signin/SignIn";
 import SignUp from "./pages/signup/SignUp";
-import Successmodal from "./components/Modal/Successmodal";
+import Successmodal from "./components/Modal/Success/Successmodal";
 import Map from "./components/Map/Map";
 import Purchase from "./components/Purchase/Purchase";
 import "./App.css";

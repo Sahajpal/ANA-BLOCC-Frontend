@@ -1,4 +1,4 @@
-.modal {
+.modalSuccess {
   position: absolute;
   width: 500px;
   height: 307px;
@@ -9,7 +9,7 @@
   background: #ffffff;
 }
 
-.overlay {
+.overlaySuccess {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,30 +18,23 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.heading {
+.headingSuccess {
   position: absolute;
-  width: 189px;
-  height: 23px;
   left: 50%;
   transform: translate(-50%, 0);
   top: 120px;
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
   color: #091982;
 }
 
-.subHeading {
+.subHeadingSuccess {
   position: absolute;
-  width: 373px;
-  height: 38px;
+  width: 80%;
   left: 50%;
   transform: translate(-50%, 0);
   top: 173px;
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
@@ -49,7 +42,7 @@
   color: #212121;
 }
 
-.actionButton {
+.detailsButton {
   display: flex;
   flex-direction: row;
   justify-content: center;

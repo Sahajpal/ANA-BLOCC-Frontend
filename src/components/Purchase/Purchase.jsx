@@ -1,9 +1,8 @@
 import * as React from 'react'
 import './purchase.css'
 import Stepper from './Stepper'
-import Upload from './Upload/Upload'
-import MediumButton from '../Button/Medium/MediumButton'
 import DocumentsUploadCard from './Documents/DocumentsUploadCard'
+import PropertySellingPrice from '../RegisterSale/PropertySellingPrice/PropertySellingPrice'
 
 export default function Purchase() {
   return (
@@ -12,6 +11,7 @@ export default function Purchase() {
       <div className="DocumentTabMainDivList">
         <DocumentsUploadCard />
       </div>
+      <PropertySellingPrice/>
     </div>
   )
 }

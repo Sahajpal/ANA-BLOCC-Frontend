@@ -1,14 +1,15 @@
-.modal {
+.modalSell {
   position: absolute;
   width: 500px;
-  height: 441px;
+  height: 581px;
+  overflow-y: auto;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   background: #ffffff;
 }
 
-.overlay {
+.overlaySell {
   position: fixed;
   top: 0;
   left: 0;
@@ -17,7 +18,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.heading {
+.headingSell {
   position: absolute;
   font-family: "Roboto";
   font-style: normal;
@@ -36,7 +37,7 @@
   border: 1px solid #d5daf2;
 }
 
-.actionButton {
+.sellButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -45,9 +46,9 @@
   gap: 4px;
   position: absolute;
   width: 166px;
-  height: 40px;
-  left: 314px;
-  top: 377px;
+  height: 20px;
+  top: 10px;
+  left: 57%;
   background: #5a6acf;
   border-radius: 8px;
 }
@@ -89,89 +90,121 @@
   border: 1px solid #d5daf2;
 }
 
-.detailsHeading {
+.paraDivider1 {
   position: absolute;
+  width: 460px;
+  height: 0px;
+  left: 20px;
+  top: 266px;
+  border: 1px solid #d5daf2;
+}
+
+.amountHeadingSell {
+  position: absolute;
+  width: 185px;
+  height: 16px;
+  left: 20px;
+  top: 178px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #212121;
+}
+
+.detailsHeadingSell {
+  position: absolute;
+  width: 105px;
   height: 19px;
   left: 20px;
-  top: 174px;
+  top: 290px;
+
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+  /* identical to box height */
+
   color: #212121;
 }
 
-.subHeading {
+.subHeadingSell {
   position: absolute;
+  width: 269px;
   height: 16px;
   left: 20px;
-  top: 217px;
+  top: 313px;
+
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  color: #212121;
+
+  color: #6b6b6b;
 }
 
-.subHeading1 {
-  position: absolute;
-  height: 16px;
-  left: 197px;
-  top: 217px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #212121;
-}
+.textBoxSell {
+  box-sizing: border-box;
 
-.subHeading2 {
   position: absolute;
-  height: 16px;
-  left: 351px;
-  top: 217px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #212121;
-}
-
-.enterOtp {
-  position: absolute;
-  width: 64px;
-  height: 16px;
+  width: 460px;
+  height: 40px;
   left: 20px;
-  top: 281px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #212121;
+  top: 381px;
+
+  border: 1px solid #d5daf2;
+  border-radius: 4px;
 }
 
-.textBox {
+.textBoxSell1 {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 460px;
+  height: 40px;
+  left: 20px;
+  top: 473px;
+
+  border: 1px solid #d5daf2;
+  border-radius: 4px;
+}
+
+.textBoxSell2 {
   box-sizing: border-box;
   position: absolute;
   width: 460px;
   height: 40px;
   left: 20px;
-  top: 305px;
+  top: 565px;
   border: 1px solid #d5daf2;
   border-radius: 4px;
 }
 
-.aadharNumber {
+.aadharNumberSell {
   position: absolute;
-  width: 99px;
+  width: 105px;
   height: 16px;
   left: 20px;
-  top: 241px;
+  top: 357px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: #212121;
+}
+
+.buyersNameSell {
+  position: absolute;
+  width: 93px;
+  height: 16px;
+  left: 20px;
+  top: 449px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -180,12 +213,12 @@
   color: #212121;
 }
 
-.buyersName {
+.dateOfBirthSell {
   position: absolute;
   width: 86px;
   height: 16px;
   left: 20px;
-  top: 333px;
+  top: 541px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -194,16 +227,33 @@
   color: #212121;
 }
 
-.dateOfBirth {
+.textBox3 {
+  box-sizing: border-box;
   position: absolute;
-  width: 79px;
-  height: 16px;
+  width: 460px;
+  height: 40px;
   left: 20px;
-  top: 425px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #212121;
+  top: 202px;
+  border: 1px solid #d5daf2;
+  border-radius: 4px;
+}
+
+.footer {
+  position: sticky;
+  width: 500px;
+  height: 60px;
+  left: 0px;
+  top: 521px;
+  background: #ffffff;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cancelButton {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 460px;
+  top: 17px;
+  border: 0px;
+  background: #ffffff;
 }

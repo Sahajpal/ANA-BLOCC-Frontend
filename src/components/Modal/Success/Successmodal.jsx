@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import "./successmodal.css";
-import MediumButton from "../Button/Medium/MediumButton";
+import MediumButton from "../../Button/Medium/MediumButton";
 import Lottie from "react-lottie";
-import animationData from "../../lotties/success.json";
+import animationData from "../../../lotties/success.json";
 
 export default function Successmodal() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,18 +30,18 @@ export default function Successmodal() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className="modal"
-        overlayClassName="overlay"
+        className="modalSuccess"
+        overlayClassName="overlaySuccess"
       >
         <div className="animation">
           <Lottie options={defaultOptions} />
         </div>
-        <h2 className="heading">Payment Successful!</h2>
-        <div className="subHeading">
+        <h2 className="headingSuccess">Payment Successful!</h2>
+        <div className="subHeadingSuccess">
           Congratulations on your new purchase! Property details can be seen in
           'My Properties'
         </div>
-        <div className="actionButton">
+        <div className="detailsButton">
           <MediumButton text={"See Details"}></MediumButton>
         </div>
       </Modal>
