@@ -8,14 +8,13 @@ export const GeneralHistoryCard = ({ type, data }) => {
       <div className="GeneralcardContent">
         <div>
           <div>
-            <img src="./images/city.svg" alt="" />{" "}
-            <div>{data.property.address}</div>
+            <img src="./images/city.svg" alt="" /> <div>{}</div>
           </div>
           <div>Bangalore</div>
         </div>
         <div>
           <div>
-            <img src="./images/status.svg" alt="" /> <div>{data.status}</div>
+            <img src="./images/status.svg" alt="" /> <div>{}</div>
           </div>
           <div id="GeneralcardContentStatus">For Sale</div>
         </div>

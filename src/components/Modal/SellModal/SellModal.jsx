@@ -1,19 +1,14 @@
-import React, { useState } from 'react'
-import Modal from 'react-modal'
-import './sellModal.css'
-import MediumButton from '../../Button/Medium/MediumButton'
+import React, { useState } from "react";
+import Modal from "react-modal";
+import "./sellModal.css";
+import MediumButton from "../../Button/Medium/MediumButton";
 
-export default function SellModal() {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-
-  function openModal() {
-    setModalIsOpen(true)
-  }
-
-  function closeModal() {
-    setModalIsOpen(false)
-  }
-
+export default function SellModal({
+  openModal,
+  modalIsOpen,
+  closeModal,
+  data,
+}) {
   return (
     <div>
       <button onClick={openModal}>Upload Documents</button>
@@ -32,8 +27,9 @@ export default function SellModal() {
         <div className="divider"></div>
         <div className="propertyHeading">Property 1</div>
         <div className="propertyAddress">
-          L376 / A, 14th B Cross Rd, Sector 6, HSR Layout, Bengaluru, Karnataka
-          560102
+          {data.property.address.line} {data.property.address.locality}
+          {data.property.address.city}
+          {data.property.address.pincode}
         </div>
         <div className="paraDivider"></div>
         <div className="amountHeadingSell">Enter Property Amount (in ₹)*</div>
@@ -63,10 +59,10 @@ export default function SellModal() {
         <input type="text" className="textBoxSell2" placeholder="DD/MM/YYYY" />
         <div className="footer">
           <div className="sellButton">
-            <MediumButton text={'Sell Property'}></MediumButton>
+            <MediumButton text={"Sell Property"}></MediumButton>
           </div>
         </div>
       </Modal>
     </div>
-  )
+  );
 }
