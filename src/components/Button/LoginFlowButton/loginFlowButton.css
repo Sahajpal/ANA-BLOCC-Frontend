@@ -12,7 +12,7 @@
 }
 .LoginBtn:hover {
   outline: 1px solid#5A6ACF;
-  box-shadow: rgb(249, 221, 171) 0px 0px 2px 5px;
+  box-shadow: #d1d6f7 0px 0px 2px 5px;
   cursor: pointer;
 }
 .aadhaarimg {

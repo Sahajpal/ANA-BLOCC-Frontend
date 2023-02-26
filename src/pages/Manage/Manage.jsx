@@ -1,18 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./manage.css";
 import Card from "../../components/Card/Card";
 import Map from "../../components/Map/Map";
 import DocumentTab from "../../components/Tabs/DocumentTab/DocumentTab";
 import RegisterSaleTab from "../../components/Tabs/RegisterSaleTab/RegisterSaleTab";
 import SeeDetails from "../../components/SeeDetails/SeeDetails";
+import { useSelector } from "react-redux";
 
 const Manage = () => {
+  // const user = JSON.parse(localStorage.getItem(user));
+  // const { _id } = user;
+  // console.log(_id, user);
+  // const { role, userId } = useSelector((state) => state.auth);
+  // console.log(role, userId);
+
   const [tab, settab] = useState(1);
   const [seedetails, setseedetails] = useState(false);
+  const [userId, setuserId] = useState("");
+  const [role, setrole] = useState("");
+
+  const [cardData, setcardData] = useState([]);
+
+  const getDataAdmin = (userId) => {
+    fetch(process.env.REACT_APP_BASE_URL + "admin/properties", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({}),
+    })
+      .then((response) => response.json())
+      .then((data) => {});
+  };
+  const getDataUser = (userId) => {
+    fetch(process.env.REACT_APP_BASE_URL + `users/${userId}/properties`, {
+      method: "GET",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+      // body: JSON.stringify({}),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setcardData(data.data);
+      });
+  };
 
   const changedetails = () => {
     setseedetails(false);
   };
+
+  useEffect(() => {
+    const { _id } = JSON.parse(localStorage.getItem("user"));
+    const roleuser = JSON.parse(localStorage.getItem("role"));
+    setrole(roleuser);
+    setuserId(_id);
+
+    getDataUser("63f9dca1b4b02daa53fdb977");
+  }, []);
+
   return (
     <div className="manageMainDiv">
       {!seedetails ? (
@@ -30,19 +77,23 @@ const Manage = () => {
               </div>
             </div>
             <div className="propertyListDiv">
-              <div
-                onClick={() => {
-                  setseedetails(true);
-                }}
-              >
-                <Card type={"city"} />
-              </div>
-              <div>
-                <Card type={"city"} />
-              </div>
-              <div>
-                <Card type={"city"} />
-              </div>
+              {cardData &&
+                cardData.map(({ status, address, ownershipId }) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        setseedetails(true);
+                      }}
+                    >
+                      <Card
+                        type={"city"}
+                        status={status}
+                        city={address.city}
+                        ownershipId={ownershipId}
+                      />
+                    </div>
+                  );
+                })}
             </div>
           </div>
           <div className="manageMainDivRight">

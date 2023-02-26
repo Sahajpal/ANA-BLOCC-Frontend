@@ -32,7 +32,7 @@ const Sidebar = () => {
             id={activeTab == 1 ? "activeSidebar" : ""}
             onClick={() => {
               setactiveTab(1);
-              navigate("");
+              navigate("/dashboard");
             }}
           >
             <img src="./images/property.svg" alt="" />
@@ -42,7 +42,7 @@ const Sidebar = () => {
             id={activeTab == 2 ? "activeSidebar" : ""}
             onClick={() => {
               setactiveTab(2);
-              navigate("action");
+              navigate("/action");
             }}
           >
             <img src="./images/action.svg" alt="" />

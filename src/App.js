@@ -18,13 +18,20 @@ import ActionCard from "./components/ActionCard/ActionCard";
 import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
 import SeeDetails from "./components/SeeDetails/SeeDetails";
 import UserSigin from "./pages/UserSigin/UserSigin";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 function App() {
+  const usertoken = useSelector((state) => state.auth.token);
+
+  const [token, settoken] = useState(
+    usertoken || localStorage.getItem("token") || ""
+  );
+
   return (
     <div className="app.css">
-      {/* <Dashboard /> */}
-      <SignIn />
-      {/* <UserSigin /> */}
+      {/* {token ? <Dashboard /> : <SignIn renderMain={renderMain} />} */}
+      <Dashboard />
     </div>
   );
 }

@@ -11,6 +11,8 @@ const initState = {
   isLoading: false,
   isError: false,
   userData: JSON.parse(localStorage.getItem("user")) || "",
+  role: JSON.parse(localStorage.getItem("role")) || "",
+  //   userId: JSON.parse(localStorage.getItem("user"))._id || "",
 };
 
 export const Auth_reducer = (state = initState, { type, payload }) => {
@@ -25,8 +27,10 @@ export const Auth_reducer = (state = initState, { type, payload }) => {
         isLoading: false,
         isError: false,
         isLogin: true,
-        token: payload,
-        userData: payload,
+        token: payload.token,
+        userData: payload.user,
+        role: payload.role,
+        // userId: payload.user.user._id,
       };
     case LOGIN_FAILURE:
       return {
@@ -43,6 +47,8 @@ export const Auth_reducer = (state = initState, { type, payload }) => {
         token: "",
         isLogin: false,
         userData: "",
+        role: "",
+        // userId: "",
       };
     default:
       return state;

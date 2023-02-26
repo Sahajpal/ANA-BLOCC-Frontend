@@ -2,10 +2,10 @@ import React from "react";
 import MediumButton from "../Button/Medium/MediumButton";
 import "./card.css";
 
-const Card = ({ type }) => {
+const Card = ({ type, city, status, ownershipId }) => {
   return (
     <div className="cardMainDiv">
-      <div className="cardPropertyHeading">Property 1</div>
+      <div className="cardPropertyHeading">Property {ownershipId}</div>
       <div className="cardPropertyStatusMain">
         <div className="cardownstatus">
           <div className="cardimgDiv">
@@ -15,13 +15,13 @@ const Card = ({ type }) => {
             />{" "}
             <div>{type}</div>
           </div>
-          <div className="cardPersonName"> Sheldon Cooper</div>
+          <div className="cardPersonName"> {city}</div>
         </div>
         <div className="cardownstatus">
           <div className="cardimgDiv">
             <img src="./images/status.svg" alt="" /> <div> status</div>
           </div>
-          <div className="cardForSale">For Sale</div>
+          <div className="cardForSale">{status}</div>
         </div>
       </div>
       <div className="cardButtonDiv">
