@@ -1,62 +1,78 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import LoginFlowButton from '../../components/Button/LoginFlowButton/LoginFlowButton'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import '../../components/Button/LoginFlowButton/loginFlowButton.css'
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import LoginFlowButton from "../../components/Button/LoginFlowButton/LoginFlowButton";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../../components/Button/LoginFlowButton/loginFlowButton.css";
 
-import './signin.css'
+import "./signin.css";
+import { useDispatch } from "react-redux";
+import { login_success, logout } from "../../components/Redux/Auth/Auth.action";
 
-const SignIn = () => {
-  const navigate = useNavigate()
-  const [phone, setPhone] = useState('')
-  const [otp, setOtp] = useState('')
-  const [isOtpRequested, setIsOtpRequested] = useState(false)
+const SignIn = ({ renderMain }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [phone, setPhone] = useState("");
+  const [otp, setOtp] = useState("");
+  const [isOtpRequested, setIsOtpRequested] = useState(false);
 
   function handleMobileNumberChange(event) {
-    setPhone(event.target.value)
+    setPhone(event.target.value);
   }
 
   function handleOtpChange(event) {
-    setOtp(event.target.value)
+    setOtp(event.target.value);
   }
 
   function handleOtpRequest(event) {
-    console.log(process.env.REACT_APP_BASE_URL)
+    console.log(process.env.REACT_APP_BASE_URL);
 
-    fetch(process.env.REACT_APP_BASE_URL + '/users/login', {
-      method: 'POST',
+    fetch(process.env.REACT_APP_BASE_URL + "users/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
+
       body: JSON.stringify({ phone }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        setIsOtpRequested(true)
+        console.log(data);
+        setIsOtpRequested(true);
       })
       .catch((error) => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   }
 
   function sendOtpRequest(event) {
-    fetch(process.env.REACT_APP_BASE_URL + '/users/verify-otp', {
-      method: 'POST',
+    fetch(process.env.REACT_APP_BASE_URL + "users/verify-otp", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ phone, otp }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        setIsOtpRequested(true)
+        if (data.data.token) {
+          console.log(data);
+          localStorage.setItem("token", JSON.stringify(data.data.token));
+          localStorage.setItem("role", JSON.stringify(data.data.role));
+          localStorage.setItem("user", JSON.stringify(data.data.user));
+
+          dispatch(login_success(data.data));
+
+          navigate("dashboard");
+        } else {
+          setIsOtpRequested(false);
+          localStorage.clear();
+          dispatch(logout());
+        }
       })
       .catch((error) => {
-        console.error(error)
-      })
+        console.error(error);
+      });
   }
 
   return (
@@ -65,7 +81,7 @@ const SignIn = () => {
         action=""
         className="loginForm"
         onSubmit={(e) => {
-          e.preventDefault()
+          e.preventDefault();
         }}
       >
         <div className="loginHeading">Login</div>
@@ -77,16 +93,20 @@ const SignIn = () => {
           </button>
         </div>
         {isOtpRequested && (
-          <label htmlFor="">OTP
+          <>
+            <label htmlFor=""> OTP </label>
+
             <input type="number" value={otp} onChange={handleOtpChange} />
-          </label>
+          </>
         )}
         {isOtpRequested && (
-          <button className="LoginBtn" onClick={() => sendOtpRequest()}>Verify OTP</button>
+          <button className="LoginBtn" onClick={() => sendOtpRequest()}>
+            Verify OTP
+          </button>
         )}
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

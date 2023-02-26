@@ -4,6 +4,7 @@ import "./sidebar.css";
 
 const Sidebar = () => {
   const [admin, setadmin] = useState(false);
+  const [activeTab, setactiveTab] = useState(1);
   const navigate = useNavigate();
   return (
     <div className="sidebarMain">
@@ -12,7 +13,7 @@ const Sidebar = () => {
       </div>
       {admin ? (
         <div className="sidebarList">
-          <div>
+          <div className="">
             <img src="./images/manage.svg" alt="" />
             <div>Manage</div>
           </div>
@@ -28,16 +29,20 @@ const Sidebar = () => {
       ) : (
         <div className="sidebarList">
           <div
+            id={activeTab == 1 ? "activeSidebar" : ""}
             onClick={() => {
-              navigate("");
+              setactiveTab(1);
+              navigate("/dashboard");
             }}
           >
             <img src="./images/property.svg" alt="" />
             <div>My Properties</div>
           </div>
           <div
+            id={activeTab == 2 ? "activeSidebar" : ""}
             onClick={() => {
-              navigate("action");
+              setactiveTab(2);
+              navigate("/action");
             }}
           >
             <img src="./images/action.svg" alt="" />

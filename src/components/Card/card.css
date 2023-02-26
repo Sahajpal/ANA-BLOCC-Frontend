@@ -8,6 +8,9 @@
 .cardMainDiv:hover {
   border: 1px solid #5a6acf;
 }
+.cardMainDiv.selected {
+  border: 1px solid #5a6acf;
+}
 
 .cardPropertyHeading {
   font-family: "Roboto";

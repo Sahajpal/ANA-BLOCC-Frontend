@@ -1,18 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import ActionCard from "../../components/ActionCard/ActionCard";
+import Otpmodal from "../../components/Modal/VerifyOtp/Otpmodal";
 import "./ActionPending.css";
 const ActionPending = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
   return (
     <div className="ActionPendingMain">
       <div className="ActionPendingMainDefault">
-        <ActionCard />
-        <ActionCard />
-        <ActionCard />
-        <ActionCard />
-        <ActionCard />
-        <ActionCard />
-        <ActionCard />
+        <div
+          onClick={() => {
+            openModal();
+          }}
+        >
+          <ActionCard />
+        </div>
+        <div>
+          <ActionCard />
+        </div>
+        <div>
+          <ActionCard />
+        </div>
+        <div>
+          <ActionCard />
+        </div>
+        <div>
+          <ActionCard />
+        </div>
+        <div>
+          <ActionCard />
+        </div>
+        <div>
+          <ActionCard />
+        </div>
       </div>
+
+      <Otpmodal closeModal={closeModal} modalIsOpen={modalIsOpen} />
     </div>
   );
 };

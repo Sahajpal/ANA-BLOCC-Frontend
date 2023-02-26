@@ -1,17 +1,20 @@
-import getConnectedContract from './wallet';
-import { getOwnershipInfo } from './backend/ownership';
-import { getUserInfoWithAadhar } from './backend/user';
+import _ from "underscore";
+import getConnectedContract from "./wallet";
+import { getOwnershipInfo } from "./backend/ownership";
+import { getUserInfoWithAadhar, getUserInfoWithId } from "./backend/user";
 
-import fetchUtil from './backend/utils';
-const _ = require('underscore');
+
+import fetchUtil from "./backend/utils";
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 
 const errorToMessageMap = {
-    'E0' : 'Only admins are allowed to perform this action',
-    'E1' : 'Only property owners can perform this action',
-    'E2' : 'Only approved buyer can perform this action',
-    'E3' : 'This action cannot be performed at this stage of the transaction',
-    'E5' : 'You cannot be the buyer of your own property',
-    'E0A' : 'You are not allowed to do this action.'
+  E0: "Only admins are allowed to perform this action",
+  E1: "Only property owners can perform this action",
+  E2: "Only approved buyer can perform this action",
+  E3: "This action cannot be performed at this stage of the transaction",
+  E5: "You cannot be the buyer of your own property",
+  E0A: "You are not allowed to do this action.",
 };
 
 // async function initiateSaleFromAdmin(pixels, buyer) {
@@ -59,10 +62,31 @@ async function acceptSaleUtil(ownershipId) {
     }
     fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/SALE_ACCEPTED`, { body: { transactionHash: result.hash }});
     return { success: true };
+
 }
 
-async function uploadDocumentsUtil() {
-    // todo Kartikey
+async function uploadDocumentsUtil(ownershipId) {
+  const docUrl =
+    "https://myhq-test.s3.amazonaws.com/myHQ-Invoice-DL2023MYHQC10268-CORPORATE.pdf";
+  const contractRes = await getConnectedContract();
+  if (!contractRes.success) return contractRes;
+  const { contract } = contractRes.data;
+  let result;
+  try {
+    result = await contract.uploadBuyerDocs(docUrl, ownershipId);
+  } catch (err) {
+    const { reason } = err;
+    const processedReason = reason.replace("execution reverted: ", "");
+    return {
+      success: false,
+      reason: `Error in accepting sale. ${errorToMessageMap[processedReason]}`,
+    };
+  }
+  const documents = [{ ipfsAddress: docUrl }];
+  fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/SALE_ACCEPTED`, {
+    body: { documents, transactionHash: result.hash },
+  });
+  return { success: true };
 }
 
 async function approveDocumentsUtil(ownershipId) {
@@ -108,28 +132,37 @@ async function initiatePaymentUtil(ownershipId) {
 }
 
 async function acknowledgePaymentUtil(ownershipId) {
-    const contractRes = await getConnectedContract();
-    if (!contractRes.success) return contractRes;
-    const { contract } = contractRes.data;
-    let result;
-    try {
-        result = await contract.acknowledgePayment(ownershipId);
-    } catch(err) {
-        const { reason } = err;
-        const processedReason = reason.replace('execution reverted: ','');
-        return { success: false, reason: `Error in acknowledging payments. ${errorToMessageMap[processedReason]}` };
-    }
-    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/TX_ACKNOWLEDGED`, { body: { transactionHash: result.hash }});
-    return { success: true };
+  const contractRes = await getConnectedContract();
+  if (!contractRes.success) return contractRes;
+  const { contract } = contractRes.data;
+  let result;
+  try {
+    result = await contract.acknowledgePayment(ownershipId);
+  } catch (err) {
+    const { reason } = err;
+    const processedReason = reason.replace("execution reverted: ", "");
+    return {
+      success: false,
+      reason: `Error in acknowledging payments. ${errorToMessageMap[processedReason]}`,
+    };
+  }
+  fetchUtil.post(
+    `${baseUrl}/ownerships/${ownershipId}/action/TX_ACKNOWLEDGED`,
+    { body: { transactionHash: result.hash } }
+  );
+  return { success: true };
 }
 
 async function approveDocumentsAndGetId(hashArray, buyerAddress, contract) {
-    const result = await contract.approveDocumentsAndMarkSale(hashArray, buyerAddress);
-    return new Promise((resolve, reject) => {
-        contract.on('CloseSale', res => {
-            resolve({ hash: result.hash, ownershipId: res.toNumber() });
-        });
+  const result = await contract.approveDocumentsAndMarkSale(
+    hashArray,
+    buyerAddress
+  );
+  return new Promise((resolve, reject) => {
+    contract.on("CloseSale", (res) => {
+      resolve({ hash: result.hash, ownershipId: res.toNumber() });
     });
+  });
 }
 async function closeSaleUtil(ownershipId) {
     const ownershipPromise = getOwnershipInfo(ownershipId);
@@ -163,21 +196,21 @@ async function cancelSaleUtil(ownershipId) {
 }
 
 async function readSale() {
-    const contractRes = await getConnectedContract();
-    if (!contractRes.success) return contractRes;
-    const { contract } = contractRes.data;
-    const res = await contract.getOpenSales();
-    console.log(JSON.stringify(res));
+  const contractRes = await getConnectedContract();
+  if (!contractRes.success) return contractRes;
+  const { contract } = contractRes.data;
+  const res = await contract.getOpenSales();
+  console.log(JSON.stringify(res));
 }
 
 export {
-    initiateSaleUtil,
-    acceptSaleUtil,
-    uploadDocumentsUtil,
-    approveDocumentsUtil,
-    rejectDocumentsUtil,
-    initiatePaymentUtil,
-    acknowledgePaymentUtil,
-    cancelSaleUtil,
-    closeSaleUtil,
+  initiateSaleUtil,
+  acceptSaleUtil,
+  uploadDocumentsUtil,
+  approveDocumentsUtil,
+  rejectDocumentsUtil,
+  initiatePaymentUtil,
+  acknowledgePaymentUtil,
+  cancelSaleUtil,
+  closeSaleUtil,
 };
