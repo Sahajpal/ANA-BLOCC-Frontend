@@ -23,7 +23,7 @@ const Manage = () => {
   const [singleOwnerData, setsingleOwnerData] = useState();
 
   const getDataAdmin = (userId) => {
-    fetch(process.env.REACT_APP_BASE_URL + "admin/properties", {
+    fetch(process.env.REACT_APP_BASE_URL + "/admin/properties", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const Manage = () => {
       .then((data) => {});
   };
   const getDataUser = (userId) => {
-    fetch(process.env.REACT_APP_BASE_URL + `users/${userId}/properties`, {
+    fetch(process.env.REACT_APP_BASE_URL + `/users/${userId}/properties`, {
       method: "GET",
       // headers: {
       //   "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const Manage = () => {
   };
 
   const getDataUserSingle = (userId) => {
-    fetch(process.env.REACT_APP_BASE_URL + `ownership/${userId}`, {
+    fetch(process.env.REACT_APP_BASE_URL + `/ownership/${userId}`, {
       method: "GET",
       // headers: {
       //   "Content-Type": "application/json",

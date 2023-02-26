@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import "./sellModal.css";
 import MediumButton from "../../Button/Medium/MediumButton";
+import { initiateSaleUtil } from "../../../utils/userutils";
 
 export default function SellModal({
   openModal,
@@ -9,6 +10,11 @@ export default function SellModal({
   closeModal,
   data,
 }) {
+  const saleHandler = (data) => {
+    const id = data.ownershipId;
+    initiateSaleUtil(id, "1234123412341234");
+    closeModal();
+  };
   return (
     <div>
       <button onClick={openModal}>Upload Documents</button>
@@ -59,7 +65,10 @@ export default function SellModal({
         <input type="text" className="textBoxSell2" placeholder="DD/MM/YYYY" />
         <div className="footer">
           <div className="sellButton">
-            <MediumButton text={"Sell Property"}></MediumButton>
+            <MediumButton
+              text={"Sell Property"}
+              submitHandler={() => saleHandler(data)}
+            ></MediumButton>
           </div>
         </div>
       </Modal>
