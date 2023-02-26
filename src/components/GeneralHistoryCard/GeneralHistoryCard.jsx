@@ -1,20 +1,21 @@
 import React from "react";
 import "./GeneralHistoryCard.css";
 
-export const GeneralHistoryCard = ({ type }) => {
+export const GeneralHistoryCard = ({ type, data }) => {
   return (
     <div className="GeneralcardMainDiv">
       <div className="GeneralcardPropertyHeading">General Details</div>
       <div className="GeneralcardContent">
         <div>
           <div>
-            <img src="./images/city.svg" alt="" /> <div>city</div>
+            <img src="./images/city.svg" alt="" />{" "}
+            <div>{data.property.address}</div>
           </div>
           <div>Bangalore</div>
         </div>
         <div>
           <div>
-            <img src="./images/status.svg" alt="" /> <div>status</div>
+            <img src="./images/status.svg" alt="" /> <div>{data.status}</div>
           </div>
           <div id="GeneralcardContentStatus">For Sale</div>
         </div>

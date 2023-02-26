@@ -6,7 +6,7 @@ import OwnershipHistoryCard from "../OwnershipHistoryCard/OwnershipHistoryCard";
 import PropertyDetailsCard from "../PropertyDetailsCard/PropertyDetailsCard";
 import "./SeeDetails.css";
 
-const SeeDetails = ({ submitHandler }) => {
+const SeeDetails = ({ submitHandler, data }) => {
   return (
     <div className="seeDetailsMainDiv">
       <div className="seeDetailsTopDiv">
@@ -17,8 +17,10 @@ const SeeDetails = ({ submitHandler }) => {
             onClick={() => submitHandler()}
           />
           <div className="seeDetailsAdd ">
-            L376 / A, 14th B Cross Rd, Sector 6, HSR Layout, Bengaluru,
-            Karnataka 560102
+            {/* L376 / A, 14th B Cross Rd, Sector 6, HSR Layout, Bengaluru,
+            Karnataka 560102 */}
+            {data.property.line} {data.property.locality} {data.property.city}{" "}
+            {data.property.pincode}
           </div>
         </div>
         <div>
@@ -28,10 +30,10 @@ const SeeDetails = ({ submitHandler }) => {
         <div></div>
       </div>
       <div className="seeDetailsBottomDiv">
-        <GeneralHistoryCard />
-        <OwnershipHistoryCard />
-        <PropertyDetailsCard />
-        <DocumentsCard />
+        <GeneralHistoryCard data={data} />
+        <OwnershipHistoryCard data={data} />
+        <PropertyDetailsCard data={data} />
+        <DocumentsCard data={data} />
       </div>
     </div>
   );

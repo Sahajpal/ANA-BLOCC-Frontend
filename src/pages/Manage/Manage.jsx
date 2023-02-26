@@ -18,8 +18,9 @@ const Manage = () => {
   const [seedetails, setseedetails] = useState(false);
   const [userId, setuserId] = useState("");
   const [role, setrole] = useState("");
-
   const [cardData, setcardData] = useState([]);
+  const [ownerId, setownerId] = useState(0);
+  const [singleOwnerData, setsingleOwnerData] = useState();
 
   const getDataAdmin = (userId) => {
     fetch(process.env.REACT_APP_BASE_URL + "admin/properties", {
@@ -42,8 +43,23 @@ const Manage = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setcardData(data.data);
+      });
+  };
+
+  const getDataUserSingle = (userId) => {
+    fetch(process.env.REACT_APP_BASE_URL + `ownership/${userId}`, {
+      method: "GET",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+      // body: JSON.stringify({}),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setsingleOwnerData(data);
       });
   };
 
@@ -59,6 +75,10 @@ const Manage = () => {
 
     getDataUser("63f9dca1b4b02daa53fdb977");
   }, []);
+
+  useEffect(() => {
+    getDataUserSingle(ownerId);
+  }, [ownerId]);
 
   return (
     <div className="manageMainDiv">
@@ -82,6 +102,7 @@ const Manage = () => {
                   return (
                     <div
                       onClick={() => {
+                        setownerId(ownershipId);
                         setseedetails(true);
                       }}
                     >
@@ -108,7 +129,10 @@ const Manage = () => {
           </div>
         </>
       ) : (
-        <SeeDetails submitHandler={changedetails} />
+        <SeeDetails
+          submitHandler={changedetails}
+          data={singleOwnerData.ownership}
+        />
       )}
     </div>
   );
