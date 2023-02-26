@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "./modal.css";
+import "./modal.css"
+
 
 export default function Otpmodal({ openModal, closeModal, modalIsOpen }) {
   return (
@@ -8,10 +9,10 @@ export default function Otpmodal({ openModal, closeModal, modalIsOpen }) {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className="modal"
-        overlayClassName="overlay"
+        className="modalOtp"
+        overlayClassName="overlayOtp"
       >
-        <h2 className="heading">Verify OTP</h2>
+        <h2 className="otpHeading">Verify OTP</h2>
         <div className="divider"></div>
         <div className="propertyHeading">Property 1</div>
         <div className="propertyAddress">
@@ -20,17 +21,20 @@ export default function Otpmodal({ openModal, closeModal, modalIsOpen }) {
         </div>
         <div className="paraDivider"></div>
         <div className="detailsHeading">Your Details</div>
-        <div className="subHeading">Aadhar Number</div>
-        <div className="subHeading1">Buyer's Name</div>
-        <div className="subHeading2">Date of Birth</div>
+        <div className="aadharNumber">Aadhar Number</div>
+        <div className="aadharNumberText">XXXX XXXX 2204</div>
+        <div className="buyersName">Buyer's Name</div>
+        <div className="buyersNameText">Jim Parsons</div>
+        <div className="dateOfBirth">Date of Birth</div>
+        <div className="dateOfBirthText">24 March 1973</div>
         <div className="enterOtp">Enter OTP</div>
         <input
           type="text"
           className="textBox"
           placeholder="Enter 4 digit OTP received on your linked number"
         />
-        <button className="actionButton" onClick={closeModal}>
-          Close Modal
+        <button className="verifyButton" onClick={closeModal}>
+          Verify Otp
         </button>
       </Modal>
     </div>

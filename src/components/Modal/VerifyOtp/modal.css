@@ -1,4 +1,4 @@
-.modal {
+.modalOtp {
   position: absolute;
   width: 500px;
   height: 441px;
@@ -8,7 +8,7 @@
   background: #ffffff;
 }
 
-.overlay {
+.overlayOtp {
   position: fixed;
   top: 0;
   left: 0;
@@ -17,14 +17,13 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.heading {
+.otpHeading {
   position: absolute;
-  font-family: "Roboto";
-  font-style: normal;
+  
   font-weight: 500;
   font-size: 20px;
-  line-height: 23px;
   left: 20px;
+  line-height: 23px;
   color: #091982;
 }
 
@@ -36,7 +35,7 @@
   border: 1px solid #d5daf2;
 }
 
-.actionButton {
+.verifyButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -48,18 +47,15 @@
   height: 40px;
   left: 314px;
   top: 377px;
+  color: white;
   background: #5a6acf;
   border-radius: 8px;
 }
 
 .propertyHeading {
   position: absolute;
-  width: 203px;
-  height: 19px;
   left: 20px;
   top: 75px;
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
@@ -68,12 +64,8 @@
 
 .propertyAddress {
   position: absolute;
-  width: 460px;
-  height: 32px;
   left: 20px;
   top: 102px;
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
@@ -94,61 +86,17 @@
   height: 19px;
   left: 20px;
   top: 174px;
-  font-family: "Roboto";
-  font-style: normal;
+  
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #212121;
 }
 
-.subHeading {
-  position: absolute;
-  height: 16px;
-  left: 20px;
-  top: 217px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #212121;
-}
-
-.subHeading1 {
-  position: absolute;
-  height: 16px;
-  left: 197px;
-  top: 217px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #212121;
-}
-
-.subHeading2 {
-  position: absolute;
-  height: 16px;
-  left: 351px;
-  top: 217px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #212121;
-}
-
 .enterOtp {
   position: absolute;
-  width: 64px;
-  height: 16px;
   left: 20px;
   top: 281px;
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -168,12 +116,8 @@
 
 .aadharNumber {
   position: absolute;
-  width: 99px;
-  height: 16px;
   left: 20px;
-  top: 241px;
-  font-family: "Roboto";
-  font-style: normal;
+  top: 217px;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -182,12 +126,8 @@
 
 .buyersName {
   position: absolute;
-  width: 86px;
-  height: 16px;
-  left: 20px;
-  top: 333px;
-  font-family: "Roboto";
-  font-style: normal;
+  left: 197px;
+  top: 217px;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
@@ -196,14 +136,40 @@
 
 .dateOfBirth {
   position: absolute;
-  width: 79px;
-  height: 16px;
-  left: 20px;
-  top: 425px;
-  font-family: "Roboto";
-  font-style: normal;
+  left: 351px;
+  top: 217px;
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
   color: #212121;
+}
+
+.aadharNumberText {
+  position: absolute;
+  left: 20px;
+  top: 237px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #6b6b6b;
+}
+
+.buyersNameText {
+  position: absolute;
+  left: 197px;
+  top: 237px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #6b6b6b;
+}
+
+.dateOfBirthText {
+  position: absolute;
+  left: 351px;
+  top: 237px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #6b6b6b;
 }

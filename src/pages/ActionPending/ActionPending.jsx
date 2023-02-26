@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ActionCard from "../../components/ActionCard/ActionCard";
-import Otpmodal from "../../components/Modal/Otpmodal";
+import Otpmodal from "../../components/Modal/VerifyOtp/Otpmodal";
 import "./ActionPending.css";
 const ActionPending = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
