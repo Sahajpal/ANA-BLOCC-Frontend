@@ -60,8 +60,22 @@ async function acceptSaleUtil(ownershipId) {
     return { success: true };
 }
 
-async function uploadDocumentsUtil() {
-    // todo Kartikey
+async function uploadDocumentsUtil(ownershipId) {
+    const docUrl = 'https://myhq-test.s3.amazonaws.com/myHQ-Invoice-DL2023MYHQC10268-CORPORATE.pdf';
+    const contractRes = await getConnectedContract();
+    if (!contractRes.success) return contractRes;
+    const { contract } = contractRes.data;
+    let result;
+    try {
+        result = await contract.uploadBuyerDocs(docUrl, ownershipId);
+    } catch(err) {
+        const { reason } = err;
+        const processedReason = reason.replace('execution reverted: ','');
+        return { success: false, reason: `Error in accepting sale. ${errorToMessageMap[processedReason]}` };
+    }
+    const documents = [ {ipfsAddress: docUrl} ];
+    fetchUtil.post(`${baseUrl}/ownerships/${ownershipId}/action/SALE_ACCEPTED`, { body: { documents, transactionHash: result.hash }});
+    return { success: true };
 }
 
 async function approveDocumentsUtil(ownershipId) {
