@@ -1,4 +1,4 @@
-.modal {
+.modalSell {
   position: absolute;
   width: 500px;
   height: 581px;
@@ -9,7 +9,7 @@
   background: #ffffff;
 }
 
-.overlay {
+.overlaySell {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,11 +18,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.header {
-
-}
-
-.heading {
+.headingSell {
   position: absolute;
   font-family: "Roboto";
   font-style: normal;
@@ -41,7 +37,7 @@
   border: 1px solid #d5daf2;
 }
 
-.actionButton {
+.sellButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -103,7 +99,7 @@
   border: 1px solid #d5daf2;
 }
 
-.amountHeading {
+.amountHeadingSell {
   position: absolute;
   width: 185px;
   height: 16px;
@@ -117,7 +113,7 @@
   color: #212121;
 }
 
-.detailsHeading {
+.detailsHeadingSell {
   position: absolute;
   width: 105px;
   height: 19px;
@@ -134,7 +130,7 @@
   color: #212121;
 }
 
-.subHeading {
+.subHeadingSell {
   position: absolute;
   width: 269px;
   height: 16px;
@@ -150,7 +146,7 @@
   color: #6b6b6b;
 }
 
-.textBox {
+.textBoxSell {
   box-sizing: border-box;
 
   position: absolute;
@@ -163,7 +159,7 @@
   border-radius: 4px;
 }
 
-.textBox1 {
+.textBoxSell1 {
   box-sizing: border-box;
 
   position: absolute;
@@ -176,7 +172,7 @@
   border-radius: 4px;
 }
 
-.textBox2 {
+.textBoxSell2 {
   box-sizing: border-box;
   position: absolute;
   width: 460px;
@@ -187,7 +183,7 @@
   border-radius: 4px;
 }
 
-.aadharNumber {
+.aadharNumberSell {
   position: absolute;
   width: 105px;
   height: 16px;
@@ -203,7 +199,7 @@
   color: #212121;
 }
 
-.buyersName {
+.buyersNameSell {
   position: absolute;
   width: 93px;
   height: 16px;
@@ -217,7 +213,7 @@
   color: #212121;
 }
 
-.dateOfBirth {
+.dateOfBirthSell {
   position: absolute;
   width: 86px;
   height: 16px;

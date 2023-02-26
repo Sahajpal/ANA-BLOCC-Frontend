@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
-import "./sellModal.css";
-import MediumButton from "../Button/Medium/MediumButton";
+import React, { useState } from 'react'
+import Modal from 'react-modal'
+import './sellModal.css'
+import MediumButton from '../../Button/Medium/MediumButton'
 
 export default function SellModal() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   function openModal() {
-    setModalIsOpen(true);
+    setModalIsOpen(true)
   }
 
   function closeModal() {
-    setModalIsOpen(false);
+    setModalIsOpen(false)
   }
 
   return (
@@ -20,11 +20,11 @@ export default function SellModal() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className="modal"
-        overlayClassName="overlay"
+        className="modalSell"
+        overlayClassName="overlaySell"
       >
-        <div className="header">
-          <h2 className="heading">Sell Property</h2>
+        <div className="headerSell">
+          <h2 className="headingSell">Sell Property</h2>
           <button className="cancelButton" onClick={closeModal}>
             <img src="./images/cancel.svg" alt="cancel"></img>
           </button>
@@ -36,37 +36,37 @@ export default function SellModal() {
           560102
         </div>
         <div className="paraDivider"></div>
-        <div className="amountHeading">Enter Property Amount (in ₹)*</div>
+        <div className="amountHeadingSell">Enter Property Amount (in ₹)*</div>
         <input
           type="text"
           className="textBox3"
           placeholder="Enter amount in rupees"
         />
         <div className="paraDivider1"></div>
-        <div className="detailsHeading">Buyer's Details</div>
-        <div className="subHeading">
+        <div className="detailsHeadingSell">Buyer's Details</div>
+        <div className="subHeadingSell">
           Enter buyer’s details to initiate sale process
         </div>
-        <div className="aadharNumber">Aadhar Number</div>
+        <div className="aadharNumberSell">Aadhar Number</div>
         <input
           type="text"
-          className="textBox"
+          className="textBoxSell"
           placeholder="12 digit aadhar number"
         />
-        <div className="buyersName">Buyer's name</div>
+        <div className="buyersNameSell">Buyer's name</div>
         <input
           type="text"
-          className="textBox1"
+          className="textBoxSell1"
           placeholder="Full name as on Aadhar Card"
         />
-        <div className="dateOfBirth">Date of Birth</div>
-        <input type="text" className="textBox2" placeholder="DD/MM/YYYY" />
+        <div className="dateOfBirthSell">Date of Birth</div>
+        <input type="text" className="textBoxSell2" placeholder="DD/MM/YYYY" />
         <div className="footer">
-          <div className="actionButton">
-            <MediumButton text={"Sell Property"}></MediumButton>
+          <div className="sellButton">
+            <MediumButton text={'Sell Property'}></MediumButton>
           </div>
         </div>
       </Modal>
     </div>
-  );
+  )
 }

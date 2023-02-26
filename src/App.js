@@ -6,7 +6,7 @@ import Sidebar from "./components/SideBar/Sidebar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import SignIn from "./pages/signin/SignIn";
 import SignUp from "./pages/signup/SignUp";
-import Successmodal from "./components/Modal/Successmodal";
+import Successmodal from "./components/Modal/Success/Successmodal";
 import Map from "./components/Map/Map";
 import Purchase from "./components/Purchase/Purchase";
 import "./App.css";
@@ -18,11 +18,12 @@ import ActionCard from "./components/ActionCard/ActionCard";
 import ActionCardNoBtn from "./components/ActionCardNoBtn/ActionCardNoBtn";
 import SeeDetails from "./components/SeeDetails/SeeDetails";
 import UserSigin from "./pages/UserSigin/UserSigin";
+import SellModal from "./components/Modal/SellModal/SellModal";
 
 function App() {
   return (
     <div className="app.css">
-      <Dashboard />
+      <SignUp />
       {/* <SignIn /> */}
       {/* <UserSigin /> */}
     </div>
