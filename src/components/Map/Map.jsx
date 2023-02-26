@@ -116,7 +116,9 @@ const generatePolygon = (path, color) => {
     fillOpacity: 0.35,
   });
 };
-function Map() {
+
+function Map({data}) {
+  console.log(data)
   const mapRef = useRef(null);
   useEffect(() => {
     const mapOptions = {
@@ -154,6 +156,7 @@ function Map() {
     polygon4.setMap(map);
     polygon5.setMap(map);
     polygon6.setMap(map);
+
   }, []);
 
   return <div ref={mapRef} style={{ height: "100vh", width: "100%" }}/>;

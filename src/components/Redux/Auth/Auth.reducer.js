@@ -3,24 +3,24 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGOUT,
-} from "./Auth.actionType";
+} from './Auth.actionType'
 
 const initState = {
-  isLogin: JSON.parse(localStorage.getItem("token")) ? true : false,
-  token: JSON.parse(localStorage.getItem("token")) || "",
-  isLoading: false,
-  isError: false,
-  userData: JSON.parse(localStorage.getItem("user")) || "",
-  role: JSON.parse(localStorage.getItem("role")) || "",
+  // isLogin: JSON.parse(localStorage.getItem("token")) ? true : false,
+  // token: JSON.parse(localStorage.getItem("token")) || "",
+  // isLoading: false,
+  // isError: false,
+  // userData: JSON.parse(localStorage.getItem("user")) || "",
+  // role: JSON.parse(localStorage.getItem("role")) || "",
   //   userId: JSON.parse(localStorage.getItem("user"))._id || "",
-};
+}
 
 export const Auth_reducer = (state = initState, { type, payload }) => {
   switch (type) {
     case LOGIN_REQUEST:
       return {
         ...state,
-      };
+      }
     case LOGIN_SUCCESS:
       return {
         ...state,
@@ -31,26 +31,26 @@ export const Auth_reducer = (state = initState, { type, payload }) => {
         userData: payload.user,
         role: payload.role,
         // userId: payload.user.user._id,
-      };
+      }
     case LOGIN_FAILURE:
       return {
         ...state,
         isLoading: false,
         isError: true,
-      };
+      }
     case LOGOUT:
-      localStorage.clear();
+      localStorage.clear()
       return {
         ...state,
         isLoading: false,
         isError: false,
-        token: "",
+        token: '',
         isLogin: false,
-        userData: "",
-        role: "",
+        userData: '',
+        role: '',
         // userId: "",
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

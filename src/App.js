@@ -20,6 +20,7 @@ import SeeDetails from "./components/SeeDetails/SeeDetails";
 import UserSigin from "./pages/UserSigin/UserSigin";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import Manage from "./pages/Manage/Manage";
 
 function App() {
   const usertoken = useSelector((state) => state.auth.token);
@@ -31,7 +32,7 @@ function App() {
   return (
     <div className="app.css">
       {/* {token ? <Dashboard /> : <SignIn renderMain={renderMain} />} */}
-      <Dashboard />
+      <Manage />
     </div>
   );
 }
